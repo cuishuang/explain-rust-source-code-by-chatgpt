@@ -1,0 +1,16 @@
+# File: tokio/tokio-stream/src/wrappers/signal_unix.rs
+
+在tokio库的tokio-stream模块中，signal_unix.rs文件的作用是实现Unix操作系统上的信号处理功能。它提供了用于创建异步信号流的类型和函数。
+
+SignalStream封装了一个异步信号流，它是一个异步生成器（stream），用于接收操作系统发出的信号。异步信号流可以通过await操作进行迭代，以及通过sink操作发送信号。
+
+这个文件中有三个重要的结构体：SignalStream、SignalSink和Signal.
+
+1. SignalStream：SignalStream是一个异步信号流的实现。它实现了Stream trait，并生成一个不断产生信号的异步生成器（stream）。SignalStream会监听系统发出的指定信号，并在信号发出时发出相应的Item。
+
+2. SignalSink：SignalSink是SignalStream的Sink（信号沉浸器）实现，它可以用来发送信号到信号流。SignalSink实现了Sink trait，可以使用try_send方法将Signal发送到SignalStream中。
+
+3. Signal：Signal是一个表示Unix信号的类型，它是对libc库中的sig_atomic_t类型的封装。Signal结构体有4个字段，在底层的实现中与libc库中定义的类型一一对应。
+
+这些结构体和相关的函数提供了一种简单和方便的方式来处理Unix系统上的信号。使用SignalStream，可以异步监听指定的信号，并根据信号的到达采取相应的操作。而SignalSink可以用于发送信号，使得信号处理成为一种可控制的过程。
+

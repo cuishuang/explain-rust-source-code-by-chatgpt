@@ -1,0 +1,16 @@
+# File: tokio/tokio/src/runtime/context/current.rs
+
+"tokio/tokio/src/runtime/context/current.rs"是Tokio运行时中的一个文件，它定义了一个全局的当前任务的上下文，以及一些与当前任务相关的结构体。
+
+首先，SetCurrentGuard结构体是一个上下文守护对象，主要负责设置当前运行时任务的上下文。当创建SetCurrentGuard对象时，它会获取当前任务运行时的上下文，并将其设置为当前任务的上下文。在离开其作用域之前，SetCurrentGuard会将上下文恢复为原来的值。
+
+HandleCell是一个包装了SetCurrentGuard的智能指针结构体。它主要用于在不同的执行上下文中访问当前任务的上下文，而不需要创建额外的作用域。HandleCell内部包含了一个Rc<Cell<Option<NonNull>>>，它存储了一个指向SetCurrentGuard的引用计数指针。HandleCell通过实现Deref和DerefMut traits，可以将其当作SetCurrentGuard使用。
+
+在Tokio中，运行时通过当前任务上下文来管理和执行异步任务。每个任务在运行时切换时，都需要更新当前任务的上下文，以便正确地执行异步操作。current.rs文件中的代码定义了一种机制，使得可以方便地获取和设置当前任务的上下文。
+
+使用SetCurrentGuard和HandleCell可以实现以下功能：
+- 在一个作用域内，将某个具体任务的上下文设置为当前任务的上下文，以便正确执行异步操作。
+- 在异步代码中，通过HandleCell访问当前任务的上下文，而无需在每个代码块中创建SetCurrentGuard对象。
+
+总之，current.rs文件中的代码为Tokio提供了一种方便的方法来管理和切换当前任务的上下文。通过SetCurrentGuard和HandleCell结构体，可以方便地设置和访问当前任务的上下文，以便正确地执行异步任务。
+

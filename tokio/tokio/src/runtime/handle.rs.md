@@ -1,0 +1,14 @@
+# File: tokio/tokio/src/runtime/handle.rs
+
+tokio/src/runtime/handle.rs文件是tokio框架中runtime层的一个模块，其中包含了与线程调度和任务执行相关的关键结构体和枚举。
+
+1. Handle struct是一个包装线程调度器（scheduler）和任务执行器（executor）的结构体。它提供了一系列方法来调度任务的执行，以及与任务执行相关的配置和一些底层操作。通过Handle，可以提交新的任务、暂停/恢复任务执行、设置任务的优先级等。
+
+2. EnterGuard<'a> struct是Handle结构体的一个子结构体，它用于实现任务执行的Scoped Bindings功能。任务执行期间，可以通过EnterGuard获取到Handle的引用，并且将当前线程绑定到特定的Handle上。这种绑定机制可以确保不同线程上的任务能够按照任务提交的顺序执行，并且在执行期间可以共享一些上下文信息。
+
+3. TryCurrentError struct是一个表示获取当前任务执行器失败的错误类型。当尝试从Handle中获取当前任务执行器时，如果获取失败，则会返回一个TryCurrentError。
+
+4. TryCurrentErrorKind enum是TryCurrentError的错误种类枚举。它定义了多种可能的错误类型，每种类型代表着不同的错误原因。这些错误类型可以帮助用户更好地理解和处理TryCurrentError。
+
+Handle结构体和相关的结构体和枚举提供了tokio框架内部线程调度和任务执行的关键操作接口，可以帮助开发者更加精细地控制和管理任务的执行。它们在tokio的内部实现中起着重要的角色，为框架的高性能和有效的任务调度提供了支持。
+

@@ -1,0 +1,12 @@
+# File: tokio/tokio-stream/src/stream_ext/next.rs
+
+在tokio-stream库中，next.rs文件定义了StreamExt trait的next方法的实现。StreamExt是由tokio-stream库提供的扩展trait，用于为异步流(Stream)类型提供额外的功能。
+
+next方法是StreamExt trait中定义的一个方法，用于从流中获取下一个元素。它返回一个Future，该Future在流上调用poll_next方法，以尝试获取下一个元素，并将其包装在Option中返回。如果流已经结束，则返回None。
+
+在next.rs文件中，定义了Next结构体和NextFuture结构体。具体来说，Next结构体是一个实现了Future trait的类型。它包含了对输入流的引用，以及当前正在等待的下一个元素。NextFuture是Next结构体的Future实现，它将在调用poll方法时尝试从流中获取下一个元素。
+
+Next结构体的主要目的是为next方法提供一个类型安全的接口，并包含了一些状态信息，比如输入流的引用以及当前等待的下一个元素。NextFuture结构体实现了Future trait，它负责具体实现poll方法以及定义Next结构体的完整生命周期。通过实现Future trait，NextFuture能够与其他Future进行协作，使得使用next方法的用户可以在需要时为其进行await。
+
+在tokio-stream库中，结构体和Future的实现细节可能会有所不同，上述内容只是对源代码作用进行一种大致的解释。如果您需要了解更详细的实现细节，建议直接查看tokio-stream库的源代码。
+

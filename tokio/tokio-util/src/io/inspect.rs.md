@@ -1,0 +1,10 @@
+# File: tokio/tokio-util/src/io/inspect.rs
+
+在tokio-util crate中的inspect.rs文件定义了两个struct：InspectReader和InspectWriter，它们的作用是为了在异步IO操作中提供一个包装器，以便对IO操作进行检查、观察和调试。
+
+InspectReader是一个读取器的包装器，它实现了AsyncRead trait。通过包装目标读取器，InspectReader可以截获读取操作，提供一个可供用户进行检查和观察的接口。当通过InspectReader进行读取操作时，它会同时记录读取的字节数和数据，并可以执行用户提供的回调函数来观察读取的数据。它还可以跟踪读取操作的状态，并在每次读取操作完成时触发用户提供的回调函数。
+
+InspectWriter是一个写入器的包装器，它实现了AsyncWrite trait。和InspectReader类似，InspectWriter也可以截获写入操作、记录写入的字节数和数据，并执行用户提供的回调函数来观察写入的数据。它还可以跟踪写入操作的状态，并在每次写入操作完成时触发用户提供的回调函数。
+
+这两个struct主要的作用是在IO操作期间提供一个可观察的接口，以便于开发人员在调试和分析异步IO操作时获取更多的信息。它们可以帮助开发人员追踪IO操作的进度、观察读取和写入的数据，并在需要时执行回调函数做进一步处理。在编写网络应用程序、文件处理、协议开发等场景中，InspectReader和InspectWriter可以是非常有用的工具，帮助开发人员理解和排查IO操作中的问题。
+

@@ -1,0 +1,16 @@
+# File: tokio/tokio/src/sync/rwlock/owned_write_guard_mapped.rs
+
+在tokio源代码中，tokio/tokio/src/sync/rwlock/owned_write_guard_mapped.rs文件的作用是实现了一个拥有所有权的读写锁映射的写入保护（OwnedRwLockMappedWriteGuard）。
+
+OwnedRwLockMappedWriteGuard是一个用于保护具有特定映射的拥有所有权的读写锁的RAII（资源获取即初始化）结构。它是tokio版本的RwLockWriteGuard的替代品，并且实现了Drop trait来确保在它离开作用域时能够释放锁。
+
+OwnedRwLockMappedWriteGuard<T, Inner<T>>是一个泛型结构，代表了一个拥有特定映射的读写锁的写入保护。它有以下几个特性和作用：
+
+1. 内部嵌套的Inner<T>结构是一个包含了锁的核心逻辑的私有结构体，被用于实现读写锁的具体行为。
+2. OwnedRwLockMappedWriteGuard实现了Deref trait，它允许通过*运算符将保护数据解引用为其内部类型T的引用。这允许在获得写锁的同时对数据执行读操作。
+3. 它还实现了DerefMut trait，它允许通过*运算符将保护数据解引用为其可变的内部类型T的引用。这允许在获得写锁的同时对数据执行写操作。
+
+OwnedRwLockMappedWriteGuard的作用是确保只有一个线程可以同时访问被保护的数据，以避免数据竞争和并发问题。当OwnedRwLockMappedWriteGuard在作用域中创建时，它会获取读写锁的写锁，确保此时只有它自己可以对被保护的数据进行写操作。当OwnedRwLockMappedWriteGuard离开作用域时，它会自动释放写锁，使其他线程可以对数据进行访问。
+
+总之，OwnedRwLockMappedWriteGuard和其内部的Inner<T>结构实现了拥有所有权的读写锁的写入保护，为并发程序提供了一种可靠的方式来保护共享数据。
+

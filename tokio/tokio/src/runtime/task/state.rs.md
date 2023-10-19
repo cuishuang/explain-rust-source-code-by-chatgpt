@@ -1,0 +1,14 @@
+# File: tokio/tokio/src/runtime/task/state.rs
+
+在tokio源代码中，tokio/tokio/src/runtime/task/state.rs文件的作用是定义了任务的状态。这个文件中包含了一些结构体和枚举，用于表示任务的不同状态和状态之间的转换。
+
+首先，State结构体表示任务的当前状态。它有几个可能的取值，包括Running、Idle、NotifiedByVal和NotifiedByRef。Running表示任务正在运行中，Idle表示任务处于空闲状态，NotifiedByVal和NotifiedByRef表示任务被通知进行执行，并且分别是通过值和引用进行通知。
+
+Snapshot结构体用于快照任务的状态。它包含一个usize类型的字段，用于存储任务的状态。在Tokio中，当一个任务需要被挂起时，当前的任务状态会被快照保存起来，以便之后能够恢复任务的状态。
+
+接下来，TransitionToRunning、TransitionToIdle、TransitionToNotifiedByVal和TransitionToNotifiedByRef是任务状态的转换枚举。它们分别用于表示从一个状态转换到另一个状态的过程。例如，当一个任务从Idle状态转换到Running状态时，会使用TransitionToRunning枚举。
+
+这些枚举主要用于在代码中清晰地表示任务状态的转换过程，并提供了一种类型安全的方式进行状态转换。通过使用这些枚举，可以更好地理解和维护任务状态之间的转换逻辑。
+
+总而言之，tokio/tokio/src/runtime/task/state.rs文件定义了任务的状态以及状态之间的转换。它提供了一种结构化的方式来管理和处理任务状态，以确保任务的正确执行和调度。
+

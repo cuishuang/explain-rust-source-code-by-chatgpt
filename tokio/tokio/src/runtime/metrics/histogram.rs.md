@@ -1,0 +1,14 @@
+# File: tokio/tokio/src/runtime/metrics/histogram.rs
+
+在tokio的源代码中，tokio/tokio/src/runtime/metrics/histogram.rs文件是实现tokio的度量功能中的直方图部分。该文件定义了Histogram、HistogramBuilder和HistogramBatch结构体，并实现了适用于直方图的度量方法。
+
+Histogram结构体用于表示直方图，它包含了直方图的配置和数据。直方图通常用于度量某个范围内的值的分布情况。HistogramBuilder结构体用于创建直方图的构建器，可以设置直方图的配置信息。HistogramBatch结构体用于在直方图中添加批量数据。
+
+直方图的构建器HistogramBuilder允许用户设置直方图的配置参数，包括桶的数量、桶的宽度、最小值和最大值等。通过构建器创建的直方图可以保证存储在桶中的值介于最小值和最大值之间，且只在特定宽度的桶中存储，这有助于有效地度量和分析数据的分布情况。
+
+HistogramBatch结构体用于在直方图中批量添加数据，这样可以避免频繁地更新直方图，提高性能。HistogramBatch提供了add方法，用于向直方图中添加单个数据点，以及add_multiple方法，用于向直方图中添加多个数据点。在添加数据后，可以通过调用flush方法将数据刷新到直方图中，以便实时地观察数据的分布情况。
+
+而HistogramScale枚举用于表示直方图的刻度范围，包括线性和对数两种模式。线性模式表示直方图的桶宽度是相等的，对应于等距离的值范围。对数模式表示直方图的桶宽度是按指数级增长的，对应于对数刻度的值范围。刻度模式的选择取决于所度量的数据的特性和分布情况。
+
+总之，tokio/tokio/src/runtime/metrics/histogram.rs文件中定义了直方图相关的结构体和方法，提供了测量和分析数据分布情况的功能。 Histogram、HistogramBuilder和HistogramBatch结构体分别用于表示直方图、创建直方图、批量添加数据。HistogramScale枚举则用于表示直方图的刻度范围。
+

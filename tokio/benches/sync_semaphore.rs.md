@@ -1,0 +1,12 @@
+# File: tokio/benches/sync_semaphore.rs
+
+在tokio源代码中，tokio/benches/sync_semaphore.rs是一个基准测试文件，用于测试并发原语SyncSemaphore的性能和吞吐量。SyncSemaphore是tokio提供的一种原语，用于对并发访问进行限制，类似于操作系统中的信号量，可以控制同一时间内可以并发访问某个资源的线程或任务数量。
+
+在sync_semaphore.rs文件中，首先会定义一些基准测试的运行参数，如并发线程数量、每个线程中操作的次数等。然后，通过tokio::test_macros::bench标记函数为基准测试函数，并命名为"semaphore"。
+
+接下来，定义了一个async函数"do_work"，作为待测试的任务，它模拟了一个长时间的异步操作，使用SyncSemaphore完成对并发操作的限制。在该函数中，首先会通过acquire方法来获取对资源的访问权限，如果没有可用的访问权限，当前任务会被挂起直到有可用的权限。然后，执行一段模拟的长时间异步操作，最后通过release方法释放对资源的访问权限。
+
+最后，定义了一个async函数"bench_semaphore"，它是真正的基准测试函数。该函数会创建一个SyncSemaphore实例，并使用tokio::spawn来创建多个并发的任务，这些任务会同时竞争获取对SyncSemaphore的访问权限。同时，通过tokio::time::Instant记录测试的开始和结束时间。在每个任务完成后，会记录任务的耗时，并累加到总耗时中。最后，基于耗时数据计算测试结果，并输出结果。
+
+整个sync_semaphore.rs文件的作用就是对SyncSemaphore这个并发原语进行性能和吞吐量测试，通过基准测试的方式评估其在不同并发环境下的表现，并输出测试结果。这样可以帮助开发者了解和优化SyncSemaphore的性能，以提高应用程序的并发处理能力。
+

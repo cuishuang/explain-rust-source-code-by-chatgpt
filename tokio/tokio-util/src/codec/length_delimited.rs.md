@@ -1,0 +1,20 @@
+# File: tokio/tokio-util/src/codec/length_delimited.rs
+
+在tokio-util项目中的length_delimited.rs文件实现了一个基于长度字段的编解码器，用于将输入字节流分割为具有指定长度的帧。
+
+- Builder是用于构建LengthDelimitedCodec实例的Builder模式建造者类型。它提供了一组方法来配置编解码器的各种参数，并最终创建一个LengthDelimitedCodec实例。
+- LengthDelimitedCodecError是一个自定义的错误类型，表示在使用长度字段编解码器时可能发生的错误。
+- LengthDelimitedCodec是一个编解码器，实现了tokio-util的Decoder和Encoder trait，用于将字节流切割成帧和将帧打包成字节流。
+- LengthFieldType是一个trait，用于指定长度字段的类型，它包含了一组方法来读取和写入长度字段的值。
+- DecodeState是一个枚举类型，用于表示解码状态。它有三个变体：Initial表示正在读取消息长度，Reading表示正在读取消息内容，和Error表示发生了错误。
+
+编解码器的作用是将输入的字节流分割成一帧帧的数据，并且提供方法将数据打包成字节流。而LengthDelimitedCodec则是基于长度字段的编解码器，在输入的字节流中提取用于表示长度的字段，并使用该字段来分割字节流成帧。
+
+Builder结构体提供了一系列配置方法，用于指定长度字段的类型、长度字段的字节顺序、最大帧大小等等。使用这些配置方法可以创建一个定制化的LengthDelimitedCodec实例。
+
+LengthDelimitedCodecError结构体表示在使用长度字段编解码器时可能发生的错误。它包含了错误的类型和一条描述错误信息的文本。
+
+LengthFieldType trait是用于指定长度字段的类型的。它定义了读取和写入长度字段的方法。tokio提供了几种实现了这个trait的内置类型，如BigEndian、LittleEndian等。
+
+DecodeState枚举类型用于表示解码状态。Initial表示正在读取消息长度，Reading表示正在读取消息内容，Error表示发生了错误。这些状态在解码过程中用于控制流程，以正确地切割帧和处理错误。
+

@@ -1,0 +1,14 @@
+# File: tokio/tokio/src/net/unix/split.rs
+
+文件split.rs是tokio库中Unix领域的网络编程的一部分。
+
+在Unix网络编程中，socket通信是通过两个文件描述符来实现的，一个用于读取数据，一个用于写入数据。split.rs文件定义了两个结构体ReadHalf和WriteHalf来表示socket通信中的两个半部分。
+
+ReadHalf结构体是对socket读取部分的封装。它包含一个引用指向UnixStream，用于读取数据。ReadHalf实现了AsyncRead trait，它是tokio库异步读取操作的一个标准接口。通过ReadHalf，可以实现对socket的异步读取操作。
+
+WriteHalf结构体则是对socket写入部分的封装。它包含一个引用指向UnixStream，用于写入数据。WriteHalf实现了AsyncWrite trait，它是tokio库异步写入操作的一个标准接口。通过WriteHalf，可以实现对socket的异步写入操作。
+
+这两个结构体在tokio库中的作用是将socket的读取和写入操作分离出来，允许程序在一个操作完成前进行其他操作，实现并发执行。这种设计能够提高性能和效率。
+
+总结起来，split.rs文件的作用是定义了ReadHalf和WriteHalf结构体，用于将socket通信中的读取和写入操作分开，为Unix领域的网络编程提供异步操作的支持。
+

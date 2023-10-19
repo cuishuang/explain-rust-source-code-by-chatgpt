@@ -1,0 +1,18 @@
+# File: tokio/tokio-util/src/compat.rs
+
+在tokio源码中，tokio-util/src/compat.rs文件的作用是提供适用于tokio库的兼容性功能。
+
+在这个文件中，有几个struct，包括Compat<T>、FuturesAsyncReadCompatExt、FuturesAsyncWriteCompatExt、TokioAsyncReadCompatExt和TokioAsyncWriteCompatExt。
+
+- Compat<T>结构体是一个适配器，它将具有旧版本Future trait的实现包装在一个类型中，以便其能够与tokio的当前版本的Future trait进行兼容。
+
+- FuturesAsyncReadCompatExt trait是为具有旧版本AsyncRead trait的类型定义的扩展trait。它提供了一些额外的方法，使得这些类型可以与tokio的AsyncRead trait进行兼容。
+
+- FuturesAsyncWriteCompatExt trait是为具有旧版本AsyncWrite trait的类型定义的扩展trait。它提供了一些额外的方法，使得这些类型可以与tokio的AsyncWrite trait进行兼容。
+
+- TokioAsyncReadCompatExt trait是为具有tokio版本的AsyncRead trait的类型定义的扩展trait。它提供了一些额外的方法，使得这些类型可以与旧版本的AsyncRead trait进行兼容。
+
+- TokioAsyncWriteCompatExt trait是为具有tokio版本的AsyncWrite trait的类型定义的扩展trait。它提供了一些额外的方法，使得这些类型可以与旧版本的AsyncWrite trait进行兼容。
+
+这些适配器和扩展trait的作用是允许旧版本的Future、AsyncRead和AsyncWrite trait与tokio的当前版本进行兼容，使得在迁移和使用旧版本的代码时更加方便。
+

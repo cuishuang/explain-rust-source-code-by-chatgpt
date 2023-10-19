@@ -1,0 +1,14 @@
+# File: tokio/tokio/src/runtime/scheduler/multi_thread/worker/taskdump.rs
+
+在tokio源代码中，taskdump.rs文件位于tokio/tokio/src/runtime/scheduler/multi_thread/worker/目录下，其作用是提供一种用于调试目的的任务转储机制。
+
+任务转储是一种记录和显示正在执行的任务的机制，通常用于调试和性能分析。在tokio中，任务转储被用于在多线程调度器中的工作线程上记录正在执行的任务，以及任务的调度信息和状态。
+
+taskdump.rs文件定义了一个名为TaskDump的结构体，用于存储任务的转储信息。该结构体包含了任务的ID、名称、所属的线程、任务的状态、任务的运行时间、入口点、栈帧信息等等。除此之外，TaskDump还提供了一些方法，用于将任务的信息转换为可打印的字符串。
+
+另外，taskdump.rs文件还定义了一个名为TaskDumpHandle的结构体，它用于将TaskDump信息添加到一个共享的转储缓冲区中。TaskDumpHandle结构体包含一个转储缓冲区的引用和一些方法，用于将任务的信息添加到缓冲区中。
+
+在tokio的多线程调度器中，每个工作线程都会创建一个TaskDumpHandle实例，并将其传递到工作线程的每个任务中。当任务执行时，可以调用TaskDumpHandle的方法将任务的信息转储到缓冲区中。这样一来，我们就可以在需要调试或分析任务执行时，通过查看转储缓冲区中的任务信息，了解任务的执行情况和状态。
+
+总之，taskdump.rs文件提供了一种用于调试目的的任务转储机制，通过记录和显示正在执行的任务的信息，帮助开发人员调试和优化多线程调度器中的任务执行。
+

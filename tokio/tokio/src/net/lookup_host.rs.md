@@ -1,0 +1,12 @@
+# File: tokio/tokio/src/net/lookup_host.rs
+
+在Tokio的源代码中，tokio/tokio/src/net/lookup_host.rs文件的作用是封装了用于解析主机名到IP地址的功能。具体来说，它提供了一个lookup_host函数，该函数接受一个主机名（如google.com）作为输入，返回一个Future，该Future会在主机名解析完成后产生一个迭代器，该迭代器包含解析后的IP地址。
+
+lookup_host函数的实现使用了底层的系统调用来执行主机名解析。它内部调用了async_std::net::lookup_host函数，该函数使用了操作系统提供的网络库来执行实际的解析操作。因此，具体的实现细节会随着操作系统和底层网络库的不同而有所差异。
+
+在具体的实现中，lookup_host函数首先会创建一个ResolveFuture实例，该实例负责发起主机名解析的异步操作。然后，它会使用tokio::spawn函数来将这个Future交给Tokio的调度器执行，这样可以将解析操作异步地执行，并且不会阻塞当前线程。
+
+一旦解析操作完成，lookup_host函数将会返回一个由解析后的IP地址组成的迭代器。通过遍历迭代器，用户可以依次取得每个解析后的IP地址。需要注意的是，解析后的IP地址是以SocketAddr的形式返回的，它包含了IP地址和端口号。
+
+总之，tokio/tokio/src/net/lookup_host.rs文件提供了一个方便的方式来解析主机名到IP地址，并且通过使用Tokio的异步调度器，可以确保这个操作不会阻塞整个程序的执行。
+

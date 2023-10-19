@@ -1,0 +1,13 @@
+# File: tokio/tokio/src/future/maybe_done.rs
+
+在Tokio源代码中，tokio/tokio/src/future/maybe_done.rs文件的作用是实现了一个用于包装未完成的Future的类型MaybeDone。这个类型可以将未完成的Future转换为已完成的Future，并可以在以后的时间继续进行。这对于处理具有不同执行时间的异步操作非常有用。
+
+在MaybeDone中，有几个enum类型分别是：
+1. MaybeDoneState：这个enum表示MaybeDone的状态，它有两个可能的值：Pending表示Future尚未完成，而Ready表示Future已经完成。
+2. PollState：这个enum表示对WrappedFuture进行Poll操作的状态。它有三个可能的值：Running表示Future正在进行中，Ready表示Future已经完成，而Err表示Future的执行中发生了错误。
+3. WrappedFuture：这个enum表示Future的状态。它有两个可能的值：Incomplete表示Future尚未完成，而Completed表示Future已经完成。
+
+在MaybeDone类型的实现中，还包括了一个“未完成Future”（Fut）的包装器。当MaybeDone被调用时，它将尝试将WrappedFuture转换为已完成状态，即将Incomplete转换为Completed。如果Future已经完成，则可以立即获取结果。如果Future尚未完成，则可以返回Poll操作结果来判断是否已经完成。
+
+可能的用例包括将异步操作包装在一个Future中，并将其传递给Tokio运行时进行处理。通过使用MaybeDone类型，可以更好地管理和处理异步操作的完成情况，并在需要时进行处理。
+

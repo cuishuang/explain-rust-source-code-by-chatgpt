@@ -1,0 +1,15 @@
+# File: tokio/tokio/src/util/sync_wrapper.rs
+
+在tokio的源代码中，tokio/util/sync_wrapper.rs是一个实用工具模块，它定义了一个名为SyncWrapper的同步类型包装器。SyncWrapper用于包装不具备线程安全性的类型，使其变为线程安全。
+
+SyncWrapper模块中的结构体有三个：SyncWrapper、SyncSender和SyncReceiver。
+
+1. SyncWrapper<T>: SyncWrapper是SyncSender和SyncReceiver的封装，它是对T类型的包装器。它实现了Send和Sync trait，因此可以安全地在多线程间共享。SyncWrapper提供了通过SyncSender和SyncReceiver进行值传递的机制。
+
+2. SyncSender<T>: SyncSender是SyncWrapper的发送端，用于将SyncWrapper的封装值发送给SyncReceiver。它提供了send方法，用于将值发送给接收方。send方法是异步的，因此可以在异步上下文中使用。
+
+3. SyncReceiver<T>: SyncReceiver是SyncWrapper的接收端，用于接收由SyncSender发送的SyncWrapper封装值。它提供了recv方法，用于接收值。recv方法是异步的，也可以在异步上下文中使用。
+
+SyncWrapper的作用是允许使用不具备线程安全性的类型在多线程间进行安全共享。它可以用于将不支持Send和Sync trait的类型传递给在tokio运行时上下文中执行的异步任务，从而实现多线程之间的安全通信。它在tokio的异步编程模型中起到了重要的作用，确保线程安全性和数据共享。
+
+
