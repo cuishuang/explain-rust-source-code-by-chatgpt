@@ -1,0 +1,18 @@
+# File: cargo/src/cargo/core/features.rs
+
+在Rust Cargo的源代码中，cargo/src/cargo/core/features.rs文件起到管理Rust Cargo特性相关功能的作用。
+
+Features是一个结构体，用于描述Rust Cargo的特性。在Cargo.toml文件中，可以使用features关键字来定义特性，并且可以通过依赖关系的方式来启用或禁用这些特性。Features结构体存储了所有已定义的特性，并提供了对特性的查询、启用和禁用等功能。
+
+Feature代表一个特性，包含特性的名称和状态（启用或禁用）。Features结构体会使用Feature来记录所有已定义的特性，并提供了通过名称查找、添加和删除特性的功能。
+
+CliUnstable是一个结构体，用于定义Cargo的CLI不稳定特性。CLI不稳定特性指的是Cargo的命令行接口中的一些功能或选项，可能在未来的版本中发生变化或被移除。CliUnstable结构体存储了CLI不稳定特性的名称和状态，并提供了相关的查询和管理功能。
+
+GitoxideFeatures是一个结构体，用于管理Gitoxide库的特性。Gitoxide是一个Rust实现的轻量级Git库，用于处理Git仓库。GitoxideFeatures结构体记录了Gitoxide库支持的特性，并提供了相关的查询和管理功能。
+
+Edition是一个枚举类型，用于表示Rust的版本。Rust有不同的版本，每个版本可能引入了新的语言功能。Edition枚举用于标识Rust Cargo所使用的Rust版本，以便在构建期间进行相应的配置和处理。
+
+Status也是一个枚举类型，表示特性的状态。特性可以是启用状态或禁用状态，Status枚举用于标识特性的当前状态。
+
+总而言之，cargo/src/cargo/core/features.rs文件提供了管理Rust Cargo特性、CLI不稳定特性和Gitoxide库特性的功能，以及对Rust版本和特性状态的管理和查询功能。
+

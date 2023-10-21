@@ -1,0 +1,14 @@
+# File: cargo/src/cargo/core/compiler/build_plan.rs
+
+在Rust Cargo的源代码中，cargo/src/cargo/core/compiler/build_plan.rs文件的作用是管理构建计划。构建计划是指Cargo在编译项目时生成的一系列任务和依赖关系。
+
+该文件定义了三个结构体：Invocation、BuildPlan和SerializedBuildPlan。
+
+1. Invocation：该结构体表示一个构建任务的调用。它存储了编译任务所需的参数，如目标目录、解析结果、命令行参数等。Invocation还包含一个用于运行命令的函数。当构建任务需要执行时，Cargo会根据Invocation中的参数创建一个Invocation实例。
+
+2. BuildPlan：这个结构体表示整个构建计划。BuildPlan包含了一个由Invocation组成的有序列表，其中每个Invocation表示一个构建任务。BuildPlan提供了一些API，用于添加任务、查询任务状态、获取任务结果等。Cargo会根据项目的依赖关系和构建配置生成BuildPlan，以确定构建任务的顺序和依赖关系。
+
+3. SerializedBuildPlan：这个结构体用于将BuildPlan序列化成二进制数据，并提供了从二进制数据还原成BuildPlan的函数。SerializedBuildPlan可以用于在不同的Cargo实例之间共享构建计划。
+
+总结起来，cargo/src/cargo/core/compiler/build_plan.rs文件中的Invocation、BuildPlan和SerializedBuildPlan这三个结构体用于管理构建计划。Invocation用于表示一个构建任务的调用，BuildPlan用于表示整个构建计划，SerializedBuildPlan用于将构建计划序列化和反序列化。这些结构体的定义和功能使得Cargo能够高效地管理和执行项目的编译任务。
+

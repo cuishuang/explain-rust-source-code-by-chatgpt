@@ -1,0 +1,18 @@
+# File: cargo/credential/cargo-credential-1password/src/main.rs
+
+cargo/credential/cargo-credential-1password/src/main.rs是Rust Cargo的源代码中的一个文件，它的作用是实现与1Password凭据管理器之间的交互。
+
+其中，OnePasswordKeychain结构体是1Password凭据管理器的抽象表示。它允许用户将其1Password账户与Cargo进行集成，并使用其凭据进行身份验证。
+
+Login结构体代表一个1Password登录凭据，包含有关登录的详细信息，如用户名和密码。
+
+Field结构体表示1Password中某一项的字段，包含有关字段的名称和值。
+
+ListItem结构体表示1Password中的一个列表项，包含有关该项的详细信息。
+
+Url结构体用于表示一个1Password中的URL，包含有关该URL的信息。
+
+OnePasswordCredential结构体表示一个1Password凭据，包含有关该凭据的信息，如标题、标签和登录凭据等。
+
+这些结构体的作用是为了在Rust Cargo和1Password之间进行数据交换，并提供在Cargo项目中配置和使用1Password凭据的功能。其中，OnePasswordKeychain负责管理凭据的读取和写入，Login和Field等结构体则用于封装1Password中的各种信息，以便在Cargo中使用。
+

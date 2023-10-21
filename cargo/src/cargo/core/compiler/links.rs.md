@@ -1,0 +1,14 @@
+# File: cargo/src/cargo/core/compiler/links.rs
+
+在Rust Cargo的源代码中，cargo/src/cargo/core/compiler/links.rs这个文件的作用是处理Rust程序的链接问题。具体来说，它定义了一个Compiler插件trait Linker，其中包含与链接相关的方法和函数。
+
+链接是将多个编译单元（对象文件或静态库）合并为一个可执行程序或动态链接库的过程。links.rs文件中的Linker trait为Cargo提供了链接器相关的功能和抽象。插件可以实现Linker trait并使用Cargo的构建系统来处理链接过程。
+
+链接过程涵盖了多个方面，其中包括解析库和二进制对象文件的依赖关系，确定符号的可见性，处理重定位等。这些过程通常由操作系统的链接器执行，而Cargo使用Linker trait来提供一致的接口，以便在不同的平台和编译环境中进行链接。
+
+links.rs文件的核心是Linker trait的定义。该trait定义了一系列方法，例如link_rlib、link_dylib和link_whole等。这些方法在cargo-core的链接实现中用于将编译单元链接到最终的可执行程序或动态链接库中。
+
+此外，links.rs文件还包含一些与链接相关的辅助函数和结构体。例如，LibraryKind枚举定义了库的类型，例如rlib、dylib和cdylib等。LinkerPlugin 结构体是一个通用的链接器插件实现，为实现Linker trait的任何类型提供了默认的实现。
+
+总的来说，links.rs文件在Cargo中负责处理Rust程序的链接问题。它定义了Linker trait和相关方法，使得Cargo能够与不同的链接器进行交互，以生成最终的可执行程序或动态链接库。这是Cargo构建系统的关键组件之一，确保在不同的环境中能够正确地链接Rust程序。
+

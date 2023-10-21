@@ -1,0 +1,14 @@
+# File: cargo/src/cargo/ops/cargo_compile/unit_generator.rs
+
+cargo_compile/unit_generator.rs这个文件是Rust Cargo中的一个源文件，其作用是生成编译单元(unit)的工具类。
+
+在Cargo中，编译单元是指待编译的一个应用程序、库或二进制的组件。UnitGenerator结构体通过读取Cargo.toml文件和解析Cargo.lock文件来确定要编译的单元，从而为编译过程提供必要的信息。
+
+UnitGenerator结构体实现了Iterator trait，可以通过迭代生成每个待编译的单元。每个单元都由一个Proposal结构体表示，并由一个Unit结构体引用来执行实际的编译操作。
+
+Proposal结构体用于表示一个待编译的单元的提案，其中包含有关目标、目录、依赖关系等信息。该结构体还提供了一些方法，可以获取单元的元数据，用于编译过程中的处理。
+
+UnitGenerator结构体的核心方法是next()，该方法实现了Iterator trait的next()方法，每次调用返回生成的下一个编译单元的Proposal。在内部实现中，UnitGenerator会遍历项目中的每个依赖项并递归地生成单元。
+
+总结而言，cargo_compile/unit_generator.rs这个文件中的UnitGenerator结构体负责解析和读取Cargo.toml文件和Cargo.lock文件，然后生成每个待编译单元的提案(Proposal)，用于后续的编译操作。在编译过程中，UnitGenerator可以迭代生成每个待编译单元的Proposal，以便Cargo能够准确地进行编译操作。
+

@@ -1,0 +1,16 @@
+# File: cargo/src/cargo/util/hasher.rs
+
+文件cargo/src/cargo/util/hasher.rs中的作用是实现一些哈希算法相关的工具和结构体，用于生成稳定的哈希值。
+
+该文件中定义的主要结构体是StableHasher和SipHasher。下面分别介绍它们的作用。
+
+1. StableHasher: StableHasher是一个通用的哈希算法结构体，它使用了SipHash算法来生成稳定的哈希值。稳定意味着相同的输入会产生相同的输出，无论何时何地哈希操作都是一致的。
+
+StableHasher的定义实现了std库中的Hasher trait，这意味着它提供了标准哈希算法所需的方法。它可以被用于各种哈希相关的操作，如计算文件的哈希值、生成唯一ID等。使用稳定的哈希算法可以保证不同机器上的运行结果一致，使得Cargo的构建过程具有可重复性。
+
+2. SipHasher: SipHasher是StableHasher的具体实现，使用了SipHash算法。SipHash是一种快速而安全的哈希算法，被广泛应用于哈希表和其他哈希相关的场景。
+
+SipHasher结构体实现了Hasher trait的方法，用于计算哈希值。它通过接收输入数据并对其进行处理来生成哈希值。SipHash算法具有良好的分布特性和抗碰撞能力，保证了生成的哈希值能够有效地区分不同的输入。
+
+在Cargo项目中，StableHasher和SipHasher结构体被广泛地用于生成哈希值，以保证构建过程的可重复性和稳定性。这对于构建系统非常重要，因为构建过程中的每个步骤都需要在不同的环境中一致地产生相同的结果，以便保证软件的可靠性和可重复性。
+

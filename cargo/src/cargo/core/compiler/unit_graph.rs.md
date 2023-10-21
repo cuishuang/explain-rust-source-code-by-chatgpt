@@ -1,0 +1,16 @@
+# File: cargo/src/cargo/core/compiler/unit_graph.rs
+
+cargo/src/cargo/core/compiler/unit_graph.rs文件是Rust Cargo中用于构建和管理编译单元图的模块。该文件定义了UnitDep、SerializedUnitGraph、SerializedUnit、SerializedUnitDep这几个结构体。
+
+- UnitDep结构体：表示编译单元的依赖关系。它包含了依赖的目标文件路径、依赖的特征、依赖的引用等信息。
+
+- SerializedUnitGraph结构体：是编译单元图的序列化表示。它包含了一组编译单元的信息以及它们之间的依赖关系。SerializedUnitGraph结构体的主要作用是支持Cargo在构建和修改编译单元图时进行高效的序列化和反序列化操作。
+
+- SerializedUnit结构体：代表了一个编译单元的序列化表示。它包含了编译单元的元数据，如目标文件、源文件、编译选项等信息。
+
+- SerializedUnitDep结构体：是编译单元依赖关系的序列化表示。它包含了依赖的目标文件路径、依赖的特征、依赖的引用等信息。
+
+这些结构体在Cargo的编译过程中起到了关键作用。Cargo使用UnitDep来表示各个编译单元之间的依赖关系，并使用SerializedUnitGraph来序列化和反序列化编译单元图。SerializedUnit结构体表示一个编译单元的元数据，包含了目标文件、源文件、编译选项等信息。而SerializedUnitDep结构体表示一个编译单元的依赖关系，包含了依赖的目标文件路径、依赖的特征、依赖的引用等信息。
+
+通过使用这些结构体，Cargo能够在构建编译单元图时准确地跟踪和管理各个单元之间的依赖关系，支持高效的序列化和反序列化操作，从而提高Cargo的编译性能和可靠性。
+

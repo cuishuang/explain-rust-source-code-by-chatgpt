@@ -1,0 +1,11 @@
+# File: cargo/crates/cargo-util/src/process_builder.rs
+
+cargo-util是Rust的包管理工具Cargo的一个子模块，而process_builder.rs是cargo-util子模块中的一个文件。process_builder.rs的作用是构建和管理子进程进行命令行操作。
+
+在该文件中，有几个struct定义了不同的功能，它们分别是：
+1. ProcessBuilder：该struct是创建子进程的主要结构。它封装了构建和运行子进程所需的所有信息，包括命令、参数、环境变量、工作目录等。ProcessBuilder还提供了很多方法来配置子进程的行为，如设置标准输入、标准输出和错误流的重定向，设置子进程的工作目录等。
+2. ExecProcessBuilder：该struct是ProcessBuilder的子结构，用于构建需要在子进程中执行的命令。ExecProcessBuilder封装了要执行的命令以及命令的参数，并提供了一些方法来配置命令的输入输出。
+3. Running: 它是ProcessBuilder的另一个子结构，用于表示正在运行的子进程。Running提供了一些方法来管理运行中的子进程，如等待子进程运行结束、发送信号给子进程等。
+
+ProcessBuilder在Cargo的源代码中广泛应用于执行各种命令行操作，如编译源代码、运行测试、构建文档等。它提供了统一的接口和一致的方式来启动和管理子进程，简化了子进程的操作和控制。同时，ProcessBuilder还可以方便地与Cargo的其他模块进行集成，使得Cargo的功能更加全面和灵活。
+

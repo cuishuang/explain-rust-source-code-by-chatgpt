@@ -1,0 +1,12 @@
+# File: cargo/src/bin/cargo/commands/rustdoc.rs
+
+rustdoc.rs文件是Rust编译器Cargo的源代码中的一个文件，它是cargo中的一个命令模块。该模块负责处理和执行与Rust文档生成工具rustdoc相关的操作。
+
+具体来说，rustdoc.rs文件定义了一个名为Rustdoc的结构体，该结构体实现了Command trait，使得我们可以使用Cargo命令行工具输入`cargo rustdoc`来调用rustdoc的功能。Rustdoc结构体中有一些字段和方法用于解析和执行rustdoc命令的参数。
+
+在rustdoc.rs文件中，还定义了一些辅助函数，例如clean_format函数用于格式化生成的文档，execute_rustdoc函数用于执行生成文档的操作。这些函数通过调用rustdoc库中的函数来实现具体的文档生成操作。
+
+此外，rustdoc.rs文件中还包含了一些文档注释，用于解释各个命令的使用方法、参数说明以及与其他Cargo命令的交互等信息。
+
+总的来说，rustdoc.rs文件的作用是作为Cargo命令模块，负责解析和执行rustdoc命令，从而生成Rust代码的文档。它实现了与命令行交互、参数解析、调用rustdoc库函数等功能，为用户提供了方便的文档生成工具。
+
