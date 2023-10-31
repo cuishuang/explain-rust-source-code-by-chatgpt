@@ -1,0 +1,12 @@
+# File: rayon/rayon-core/src/lib.rs
+
+rayon-core/src/lib.rs是rayon核心库的入口文件，其中定义了Rayon的核心功能和结构。
+
+ThreadPoolBuilder是一个辅助结构体，用于构建线程池(ThreadPool)。它包含了线程池的配置参数，可以通过方法链式调用来设置这些参数。ThreadPoolBuildError是构建线程池的错误类型。
+
+ClosurePlaceholder是一个占位符结构体，它在FnContext中用来存储闭包。FnContext是线程池内执行任务时的上下文，它存储了执行任务所需的闭包和相关信息。
+
+ErrorKind是ThreadPoolBuildError的错误类型的枚举。它定义了不同错误类型对应的错误种类，有以下几种：UnsupportedConfiguration表示ThreadPoolBuilder配置不受支持，ThreadCreationFailed表示线程创建失败，ThreadPoolAlreadyBuilt表示线程池已经建立，CannotPopulateGlobalThreadPool表示无法填充全局线程池，ClosureHasWrongType表示闭包类型错误。
+
+总结起来，rayon-core/src/lib.rs文件定义了rayon的核心功能和结构，包括线程池的构建和错误处理。ThreadPoolBuilder用于构建线程池，ClosurePlaceholder和FnContext用于存储闭包和上下文信息，ErrorKind定义了不同错误类型的种类。
+

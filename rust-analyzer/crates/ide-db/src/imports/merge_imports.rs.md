@@ -1,0 +1,20 @@
+# File: rust-analyzer/crates/ide-db/src/imports/merge_imports.rs
+
+merge_imports.rs文件的作用是实现不同导入语句的合并逻辑。当源代码中存在多个相同的类型或函数的导入语句时，该文件中的代码会根据一定的逻辑将这些导入语句合并为一个。
+
+具体而言，merge_imports模块提供了merge_imports函数，该函数接收一个ImportGroup列表作为输入，返回合并后的ImportGroup列表作为输出。ImportGroup表示一个导入语句块，其中包含多个具体的导入项。
+
+该文件中最重要的部分是merge_methods函数。其思路是将输入的导入语句块列表按照特定规则进行合并，生成一个新的合并后的导入语句块列表。该函数会根据MergeBehavior中的枚举值来确定合并行为。
+
+MergeBehavior枚举有三个值：
+
+- AddNewLine：表示合并后的导入语句块之前需要插入一个新的空行。
+- CollapseBraces：表示合并后的导入语句块应该将所有导入项放在一对大括号内。
+- SortByKind：表示合并后的导入语句块中的导入项按照种类进行排序。
+
+在merge_methods函数的实现中，首先会按照引用路径对导入语句块进行分组。然后，根据MergeBehavior枚举值的不同，对导入项进行排序、插入空行以及合并大括号。
+
+此外，在merge_imports.rs文件中还包括一些辅助函数，如detect_merge_behavior用于检测MergeBehavior的适用性，should_merge_items用于判断两个导入项是否可以合并，以及drop_vis从导入路径中删除可见性修饰符等。
+
+总而言之，merge_imports.rs文件实现了将相同类型或函数的多个导入语句合并为一个的逻辑，并提供了不同的合并行为选项。通过该模块，rust-analyzer可以更好地组织和优化导入语句，提高代码可读性和维护性。
+

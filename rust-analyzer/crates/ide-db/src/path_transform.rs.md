@@ -1,0 +1,12 @@
+# File: rust-analyzer/crates/ide-db/src/path_transform.rs
+
+rust-analyzer/crates/ide-db/src/path_transform.rs文件的作用是实现路径转换的功能。它主要包含了AstSubsts、PathTransform和Ctx三个结构体，以及TypeOrConst枚举。
+
+AstSubsts结构体表示Rust语言中的泛型类型实参和常量实参。它的作用是保存有关泛型参数替换的信息。通过AstSubsts，可以将一个泛型类型或常量替换为具体的类型或常量。
+
+PathTransform结构体是路径转换的主要实现。它通过实例化AstSubsts来完成从原始路径到目标路径的转换。PathTransform结构体在处理类型和常量的路径转换时，会使用到Ctx结构体。
+
+Ctx结构体是路径转换的上下文。它保存了一些需要在路径转换过程中使用的信息，比如当前作用域，泛型参数信息等。Ctx结构体的主要作用是为PathTransform提供运行时的上下文环境，以便正确地进行路径转换。
+
+TypeOrConst枚举表示Rust中可能的类型或常量。它包含了多个变体，包括Type、Const、Static和AssociatedType等。TypeOrConst枚举的作用是用于在路径转换的过程中区分不同的类型或常量，并进行相应的处理。
+

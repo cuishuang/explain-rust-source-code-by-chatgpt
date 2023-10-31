@@ -1,0 +1,12 @@
+# File: rust-analyzer/crates/rust-analyzer/src/integrated_benchmarks.rs
+
+rust-analyzer/crates/rust-analyzer/src/integrated_benchmarks.rs是rust-analyzer项目中的一个源代码文件，用于执行集成基准测试（integrated benchmarks）。
+
+集成基准测试是一种测试方法，用于评估软件系统在实际使用场景下的性能和稳定性。这种测试方法会模拟真实的使用情况，包括对源代码进行词法分析、语法分析、语义分析等操作，并记录下执行时间以评估系统的性能。集成基准测试的目的是发现和解决系统在实际使用中可能遇到的性能问题和功能缺陷。
+
+在rust-analyzer中，integrated_benchmarks.rs文件包含了一系列的基准测试用例和相关的测试逻辑。这些测试用例通常用来检查和评估rust-analyzer在处理大型项目时的性能和表现。比如，它可以测试rust-analyzer在处理大型代码库时的启动时间、代码导航速度、代码补全延迟等性能指标。
+
+该文件中的基准测试用例是使用Criterion库创建的，这是一个专门用于基准测试的Rust库。Criterion库提供了许多用于测量性能的函数和工具，使得创建和分析基准测试变得简单和方便。
+
+通过定期运行这些集成基准测试，rust-analyzer的开发团队可以了解其性能的变化情况和优化效果，并及时发现和解决可能存在的性能问题。这有助于确保rust-analyzer在实际使用中能够提供快速、高效和稳定的开发体验。
+

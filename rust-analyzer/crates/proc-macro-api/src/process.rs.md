@@ -1,0 +1,10 @@
+# File: rust-analyzer/crates/proc-macro-api/src/process.rs
+
+在rust-analyzer的源代码中，rust-analyzer/crates/proc-macro-api/src/process.rs文件的作用是定义了与处理过程宏相关的API。
+
+ProcMacroProcessSrv是一个结构体，它负责管理处理过程宏的服务。在rust-analyzer中，处理过程宏是通过另一个进程来运行的，而ProcMacroProcessSrv就是负责与该进程进行通信的桥梁。它提供了一系列方法，用于向处理过程宏的服务发送请求，并获取响应。
+
+Process是一个结构体，它代表了一个具体的处理过程宏。每个处理过程宏都会创建一个对应的Process实例。Process结构体中存储了处理过程宏的进程ID、输入和输出文件句柄等信息。它提供了一系列方法，用于发送请求给处理过程宏，并获取处理过程宏的输出结果。同时，Process还提供了方法来管理处理过程宏的生命周期，比如启动和终止处理过程宏的进程。
+
+通过ProcMacroProcessSrv和Process结构体，rust-analyzer能够与处理过程宏的服务进行交互，并将处理过程宏的请求转发给对应的进程来执行。这些结构体在rust-analyzer的处理过程宏功能实现中起到了重要的作用。
+

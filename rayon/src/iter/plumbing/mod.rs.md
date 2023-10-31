@@ -1,0 +1,10 @@
+# File: rayon/src/iter/plumbing/mod.rs
+
+在Rust的rayon库中，rayon/src/iter/plumbing/mod.rs文件是rayon迭代器的内部实现模块，提供了用于并行化的迭代器的低级原语和工具函数。
+
+Splitter, LengthSplitter和Callback<C>是rayon迭代器的拆分器（Splitter）结构体。拆分器是一种将迭代器分割为多个部分的工具，以便并行处理。Splitter通过实现Iterator trait，使得迭代器可以在并行计算中被拆分为子迭代器，并且每个子迭代器可以在独立的线程中进行处理。LengthSplitter是拆分器的一种特殊类型，它通过切分长度来拆分迭代器。Callback<C>是拆分过程中的回调函数，用于处理每个拆分后的子迭代器。
+
+ProducerCallback<T>是一个trait，它定义了一个回调函数，用于生产者（Producer）在拆分迭代器时通知消费者（Consumer）进行处理。Producer是一个迭代器生产者，它负责生成迭代器的元素。Consumer是一个消费者，它负责处理Producer生成的元素。Folder是一种特殊类型的Consumer，它可以进行折叠操作，将元素累积成一个结果。Reducer<Result>是一种特殊类型的Consumer，它可以将多个结果进行归约操作。UnindexedConsumer<I>是一个未索引的消费者，用于处理未经索引的迭代器。UnindexedProducer是一个未索引的生成者，用于生成未经索引的迭代器。
+
+通过使用这些结构体和trait，rayon库能够实现高效且易于并行化的迭代器操作，从而提供了优化的并行计算能力。
+

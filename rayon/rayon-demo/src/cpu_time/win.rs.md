@@ -1,0 +1,12 @@
+# File: rayon/rayon-demo/src/cpu_time/win.rs
+
+在Rust rayon库中，rayon-demo/src/cpu_time/win.rs文件的作用是提供Windows平台上的CPU时间统计功能。该文件为rayon-demo crate提供了一个实现了CpuTimeMeasure接口的结构体WinCpuTimeMeasure。
+
+具体来说，rayon-demo crate是用来演示rayon库的功能和性能的。其中包括一个名为cpu_time的子模块，用于测量和比较不同计算任务的CPU时间消耗。该子模块对不同平台提供了不同的实现，win.rs文件就是其中之一。
+
+WinCpuTimeMeasure结构体实现了CpuTimeMeasure trait，用于测量计算任务的CPU时间。它通过调用Windows API来获取当前线程的CPU时间计数器的值，并通过处理这些计数器值来计算出相应的CPU时间。具体而言，它调用GetThreadTimes函数来获取当前线程的用户模式和内核模式运行时间，然后使用这些时间值计算出总的CPU时间。
+
+除了实现CpuTimeMeasure trait，WinCpuTimeMeasure还提供了一些辅助函数和方法，用于获取和转换CPU时间的值。这些方法包括get_time函数用于获取当前线程的用户模式和内核模式运行时间值，convert_time函数用于将时间值转换为纳秒单位，以及measure_cpu_time函数用于测量计算任务的CPU时间。
+
+总之，rayon-demo/src/cpu_time/win.rs文件的作用是提供Windows平台上测量计算任务CPU时间的实现。它通过调用Windows API获取当前线程的CPU时间计数器值，并使用这些值来计算出CPU时间。
+

@@ -1,0 +1,12 @@
+# File: rust-analyzer/crates/project-model/src/lib.rs
+
+rust-analyzer/crates/project-model/src/lib.rs文件的主要作用是定义项目模型相关的数据结构和枚举类型。
+
+在该文件中，定义了ProjectManifest枚举，用于表示项目的清单文件类型。ProjectManifest的成员包括CargoToml和BazelRc等，分别对应Cargo.toml和Bazel.rc文件。这些清单文件用于描述项目的依赖关系、构建规则等信息。
+
+InvocationStrategy枚举定义了代码分析的调用策略。该枚举有多个成员，如OnChange、OnRequest和OnCommit等。OnChange表示在代码变化时触发代码分析，OnRequest表示根据用户的请求触发代码分析，OnCommit表示在代码提交时触发代码分析。InvocationStrategy用于确定何时进行代码分析以及代码分析的频率。
+
+InvocationLocation枚举用于表示触发代码分析的位置。InvocationLocation的成员包括Workspace和File等，分别对应整个项目和单个文件。通过指定InvocationLocation，可以精确控制代码分析的范围。
+
+这些枚举类型在rust-analyzer的代码中被广泛使用，用于描述项目配置、代码分析的触发策略和范围等。通过定义这些枚举，使得代码分析可以根据不同的项目和用户需求进行灵活配置和控制。
+

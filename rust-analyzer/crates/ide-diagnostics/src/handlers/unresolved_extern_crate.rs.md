@@ -1,0 +1,18 @@
+# File: rust-analyzer/crates/ide-diagnostics/src/handlers/unresolved_extern_crate.rs
+
+在rust-analyzer的源代码中，rust-analyzer/crates/ide-diagnostics/src/handlers/unresolved_extern_crate.rs文件的作用是处理无法解析的extern crate的情况。
+
+外部crate是Rust中引入外部库的一种方式。在Rust中，可以使用关键字"extern crate"来导入外部的crate。然而，有时会出现无法解析extern crate的错误，可能是由于crate名称错误、crate不存在或版本不匹配等原因。
+
+unresolved_extern_crate.rs中的代码提供了对此类错误的处理。该文件定义了一个叫做"unresolved_extern_crate"的函数，并导出给其他模块使用。该函数接受一个语法树节点（即ast）作为参数，该节点代表无法解析的extern crate语句。
+
+该函数的主要作用是标记无法解析的extern crate语句，并生成相应的诊断信息和建议。它通过分析语法树和语义信息来检查crate名称是否存在、版本是否匹配等，并根据检查结果生成相应的诊断信息。诊断信息可以包含错误信息、建议修复步骤等，以帮助用户解决问题。
+
+Foo这几个结构体在unresolved_extern_crate.rs文件中用于生成诊断信息和建议。具体而言，这些结构体用于表示不同类型的错误和建议，并提供了一些方法来生成相关信息。
+
+例如，Foo::missing_crate方法用于生成一个表示缺少crate的诊断信息。它接受crate名称作为参数，并根据名称生成相应的错误信息。
+
+Foo::wrong_version方法用于生成一个表示版本不匹配的诊断信息。它接受crate名称和期望的版本范围作为参数，并根据这些信息生成相应的错误信息和建议。
+
+这些结构体的作用是将诊断信息和建议进行抽象和封装，使得代码更加清晰和易于维护。它们提供了一种便捷的方式来生成特定类型的诊断信息，并在需要时进行扩展和修改。
+
