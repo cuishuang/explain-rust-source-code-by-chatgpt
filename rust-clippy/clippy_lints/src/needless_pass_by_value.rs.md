@@ -1,0 +1,18 @@
+# File: rust-clippy/clippy_lints/src/needless_pass_by_value.rs
+
+needless_pass_by_value.rs是rust-clippy中的一个lint，用于检测不必要的按值传递。该lint通过分析函数签名和函数体中的变量使用情况，找出可能的不必要的按值传递的地方。
+
+具体而言，needless_pass_by_value.rs文件中包含了多个相关的struct，其中较为关键的是MovedVariablesCtxt。MovedVariablesCtxt通过构建一个上下文环境，用于跟踪变量的移动（Move）和使用（Use）情况，以确定是否存在不必要的按值传递。
+
+MovedVariablesCtxt中的struct主要有以下几个作用：
+
+1. RootHandler：确定函数签名中参数是否需要拷贝。它通过遍历函数签名的每个参数，检查每个参数是否出现在函数体中，以确定该参数是否被使用。如果没有被使用，则可以通过引用传递（按引用传递）替代按值传递。
+
+2. MoveInfo：负责跟踪变量的移动和使用情况。它通过将变量与对应的使用情况进行绑定，以便在分析过程中做出准确的判断。通过对每个变量的分析，MoveInfo可以确定哪些变量是被移动的，哪些变量是被使用的。
+
+3. PathVariant：用于表示变量的路径，以及在一个函数体中变量的移动和使用情况。
+
+通过分析MovedVariablesCtxt中的信息，needless_pass_by_value.rs可以确定是否存在不必要的按值传递的代码，并通过相应的建议来修复这些问题。
+
+需要注意的是，以上只是对needless_pass_by_value.rs文件中的部分内容进行了简要介绍，实际上还包含了更多的处理逻辑和细节。详细了解整个代码的实现可以参考rust-clippy的官方文档或者阅读源代码。
+

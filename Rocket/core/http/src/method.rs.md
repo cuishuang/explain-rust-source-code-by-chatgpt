@@ -1,0 +1,16 @@
+# File: Rocket/core/http/src/method.rs
+
+Rocket/core/http/src/method.rs文件是Rocket框架中HTTP请求方法的定义和处理模块。
+
+首先，该文件定义了一个Method枚举，该枚举表示HTTP请求的方法。Method枚举中包含了常见的HTTP请求方法，例如GET、POST、PUT、DELETE等等。这些枚举成员都有相应的字符串值，用于HTTP请求的方法表示。
+
+在Method枚举下面定义了两个相关的实现结构体，即DeVisitor和FnDe。这两个结构体都实现了方法解析的访问者模式（Visitor Pattern），分别用于将HTTP请求方法的字节流转换为Method枚举的实例和将Method枚举的实例转换为字节流。
+
+DeVisitor是一个结构体，用于将HTTP请求方法的字节流解析为Method枚举的实例。它实现了从字节流读取数据的逻辑，以识别和解析Method枚举的实例。
+
+FnDe是一个结构体，用于将Method枚举的实例转换为字节流。它实现了将Method枚举的实例写入字节流的逻辑，以便在HTTP请求中使用。
+
+这些结构体进行了二进制位操作，实现了对Method枚举的序列化和反序列化。这样，Rocket框架就可以根据具体的HTTP请求方法进行逻辑处理。
+
+总结起来，Rocket/core/http/src/method.rs文件通过枚举类型Method和相关的结构体，定义了HTTP请求的方法，并提供了方法解析的访问者模式，以支持HTTP请求方法的序列化和反序列化操作。这样就可以方便地处理和操作HTTP请求的方法相关信息。
+

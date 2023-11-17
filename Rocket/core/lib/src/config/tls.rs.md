@@ -1,0 +1,14 @@
+# File: Rocket/core/lib/src/config/tls.rs
+
+在Rust生态Rocket web框架的源代码中，Rocket/core/lib/src/config/tls.rs这个文件的作用是处理与TLS（Transport Layer Security）（安全传输层协议）相关的配置。
+
+首先，TlsConfig和MutualTls是两个结构体类型。TlsConfig结构体定义了TLS配置的参数，包括证书，私钥，密码等等。MutualTls结构体则扩展了TlsConfig，并增加了客户端TLS证书的参数。
+
+在这个文件中，还有一个叫做CipherSuite的枚举类型，它定义了支持的TLS密码套件。密码套件是一组加密算法和安全协议，用于在TLS连接建立时协商加密参数。不同的密码套件提供了不同的安全级别和性能。
+
+CipherSuite枚举定义了多个不同的密码套件，包括TLS_RSA_WITH_AES_256_CBC_SHA、TLS_RSA_WITH_AES_128_CBC_SHA、TLS_RSA_WITH_AES_256_GCM_SHA384等等。每个枚举值表示一种具体的密码套件，其中的名称表示了使用的加密算法和散列算法。
+
+这些结构体和枚举在Rocket中被用于处理与TLS相关的配置。可以使用TlsConfig和MutualTls结构体来设置服务器的TLS参数，如证书和密码。而CipherSuite枚举则用于指定服务器支持的TLS密码套件，用于与客户端进行握手时的协商。
+
+综上所述，Rocket/core/lib/src/config/tls.rs文件的作用是为Rocket web框架提供与TLS相关的配置功能，并定义了TLS配置的参数和支持的密码套件。这些配置选项可以用来确保在使用Rocket框架构建的Web应用程序中使用安全的传输通信。
+

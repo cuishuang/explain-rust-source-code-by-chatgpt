@@ -1,0 +1,14 @@
+# File: vector/lib/codecs/src/decoding/format/json.rs
+
+在Rust生态的vector项目中，vector/lib/codecs/src/decoding/format/json.rs文件的作用是定义JSON格式的反序列化器。这个文件中包含了多个相关的结构体，包括JsonDeserializerConfig、JsonDeserializerOptions和JsonDeserializer。
+
+JsonDeserializerConfig结构体是用于配置JSON反序列化器的，在创建JsonDeserializer时，可以通过传递JsonDeserializerConfig来指定一些配置选项，例如是否对特定字段进行解析、是否允许未知字段等。
+
+JsonDeserializerOptions结构体是用于定义JSON反序列化器的选项的。这些选项包括了JsonDeserializerConfig以及其他一些具体的解析选项，例如字符串解析选项、数字解析选项、日期解析选项等。
+
+JsonDeserializer结构体是实际执行JSON反序列化的结构体。在创建JsonDeserializer时，需要传递一个实现了Read trait的对象，这样JsonDeserializer就可以从该对象中读取JSON数据并进行解析。JsonDeserializer还会使用之前提到的JsonDeserializerOptions来进行解析过程中的配置。
+
+JsonDeserializer提供了一些方法来进行JSON对象的解析，例如解析字符串、数字、布尔值、数组、对象等。它会根据配置选项来决定如何解析特定的JSON数据，并将解析结果返回给调用者。
+
+总而言之，vector/lib/codecs/src/decoding/format/json.rs文件定义了用于处理JSON格式的反序列化器及其相关的配置选项，它们可以帮助用户更灵活地解析和处理JSON数据。
+

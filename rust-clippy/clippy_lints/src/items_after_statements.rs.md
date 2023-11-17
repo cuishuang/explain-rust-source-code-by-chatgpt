@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_lints/src/items_after_statements.rs
+
+在rust-clippy的源代码中，rust-clippy/clippy_lints/src/items_after_statements.rs这个文件的作用是实现一个lint，用于检查函数或方法调用之后是否紧跟着一个语句或一个块。
+
+具体来说，这个lint会检查函数或方法的调用，如果调用之后没有紧跟着语句或块，就会产生一个警告。
+
+文件中的lint函数实现了这个检查的逻辑。它会遍历每个函数或方法的体，查找函数或方法调用的语句。如果找到一个调用语句，就会判断该语句的下一个语句是不是一个语句或一个块，如果不是，则产生一个警告。
+
+这个lint的作用是帮助开发者避免在函数或方法调用之后不小心漏写了必要的语句或块。这样的错误可能会导致程序逻辑出错或产生难以预料的结果。通过启用这个lint，可以在编译时就发现这样的潜在问题，并及时修复。
+
+总结来说，rust-clippy/clippy_lints/src/items_after_statements.rs这个文件实现了一个lint，用于检查函数或方法调用之后是否紧跟着一个语句或一个块，以帮助开发者尽早发现并修复这样的潜在问题。
+

@@ -1,0 +1,14 @@
+# File: vector/src/internal_events/lua.rs
+
+在Rust生态vector项目的源代码中，vector/src/internal_events/lua.rs文件的作用是定义与Lua脚本相关的内部事件类型和处理逻辑。
+
+该文件中定义了三个struct：LuaGcTriggered，LuaScriptError和LuaBuildError。
+
+1. LuaGcTriggered结构体表示Lua垃圾回收被触发的事件，在Vector运行过程中，当需要释放一些不再被使用的Lua对象时，就会触发这个事件。这个事件的作用是通知相关的Lua脚本对Lua对象进行清理操作，以防止内存泄漏。
+
+2. LuaScriptError结构体表示Lua脚本执行过程中出现错误的事件。当Vector执行Lua脚本时，如果发生了运行时错误，例如语法错误或逻辑错误，就会触发这个事件。这个事件的作用是传递错误信息给Vector，以便进行错误处理。
+
+3. LuaBuildError结构体表示Vector加载Lua脚本过程中出现错误的事件。当Vector尝试加载Lua脚本文件时，如果发生了文件不存在或文件格式错误等错误，就会触发这个事件。这个事件的作用是传递错误信息给Vector，以便进行错误处理和通知开发者。
+
+这些结构体定义了相关的事件数据类型，并在相应的事件发生时，提供对应的处理逻辑和错误信息传递机制，以保证Vector在与Lua脚本交互时的稳定性和可靠性。
+

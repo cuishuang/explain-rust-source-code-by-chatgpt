@@ -1,0 +1,14 @@
+# File: vector/src/sinks/clickhouse/service.rs
+
+在Rust生态的vector项目中，vector/src/sinks/clickhouse/service.rs文件起到了与ClickHouse数据库进行交互的作用，即向ClickHouse发送数据并处理响应。
+
+该文件中的ClickhouseRequest struct定义了与ClickHouse交互所需的请求数据结构，其中包括写入到ClickHouse的数据、表名、列名等信息。
+
+ClickhouseResponse struct定义了与ClickHouse交互后的响应数据结构，包括响应状态、错误信息等。
+
+ClickhouseRetryLogic struct定义了与ClickHouse交互的重试逻辑，用于处理与ClickHouse的连接失败或请求失败的情况，通过这个结构可以确定何时重试以及如何处理重试的方式。
+
+ClickhouseService struct是整个ClickHouse服务的核心，它负责与ClickHouse建立连接、通过发送ClickhouseRequest并处理ClickhouseResponse进行数据交互。该结构具有向ClickHouse写入数据的功能，同时对于连接中断或请求失败等情况也负责触发重试逻辑。
+
+总体来说，vector/src/sinks/clickhouse/service.rs文件中的这些结构和函数是用于与ClickHouse数据库进行数据交互的核心组件，它们通过定义请求和响应的格式、处理连接和请求失败等情况，实现向ClickHouse写入数据的功能，并确保可靠性和重试机制的实现。
+

@@ -1,0 +1,16 @@
+# File: vector/src/sources/kubernetes_logs/namespace_metadata_annotator.rs
+
+在Rust生态的Vector项目中，vector/src/sources/kubernetes_logs/namespace_metadata_annotator.rs文件的作用是为来自Kubernetes集群的日志数据注入命名空间元数据。
+
+具体来说，该文件定义了一个用于处理Kubernetes日志数据的注解器。当Vector收集来自Kubernetes集群的日志数据时，它会使用该注解器分析每条日志，然后根据命名空间元数据进行注解。
+
+以下是FieldsSpec和NamespaceMetadataAnnotator这两个结构体的作用：
+
+1. FieldsSpec结构体：该结构体定义了一个记录字段规范的对象。它描述了注解器应该在日志中查找的特定字段。其中包含字段的名称、数据类型和值。
+
+2. NamespaceMetadataAnnotator结构体：该结构体是命名空间元数据注解器的主要组成部分。它包含了用于解析、匹配和注解命名空间元数据的逻辑。命名空间元数据注解器的主要任务是在每条日志中添加命名空间信息，以便后续处理可以根据命名空间对数据进行聚合或筛选。
+
+NamespaceMetadataAnnotator结构体根据预定义的字段规范，从每条日志中提取命名空间信息，并将其注解到日志的特定字段中。它还提供了一些可配置的选项，用于定义元数据注解的行为，例如指定默认命名空间、启用或禁用特定字段的注解等。
+
+总结来说，namespace_metadata_annotator.rs文件中的NamespaceMetadataAnnotator结构体和相关组件负责处理Kubernetes日志数据，提取并注解命名空间元数据，以方便后续的数据处理和分析。
+

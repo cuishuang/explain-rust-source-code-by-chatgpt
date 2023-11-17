@@ -1,0 +1,12 @@
+# File: vector/lib/prometheus-parser/build.rs
+
+vector/lib/prometheus-parser/build.rs文件是Rust生态中vector项目的一部分，其作用是在构建过程中通过codegen库自动生成prometheus_parser.rs文件。该文件是由prometheus文本格式的内部代码生成库（codegen库）生成的，它可以将prometheus格式的文本转换为向量的内部数据结构。
+
+代码生成是一种在编译时自动生成代码的技术，它通过build.rs文件来实现。在本例中，build.rs文件负责在构建时动态生成prometheus_parser.rs文件。这样做的好处是，通过代码生成能够提高程序的性能和效率，避免手动编写大量重复的代码。
+
+在build.rs文件中，首先通过include_str!宏将prometheus文本格式的代码模板文件（prometheus_parser.tt）读入内存中。然后，使用codegen库将这个模板文件的内容与动态生成的代码片段进行合并，并生成最终的prometheus_parser.rs文件。
+
+prometheus_parser.rs文件包含了向量项目中用于解析和处理prometheus文本格式的代码。这些代码使用Rust的类型和方法来定义各种prometheus格式的语法规则。通过自动生成这些代码，向量项目能够快速高效地解析和处理prometheus格式的数据，从而提供更好的用户体验和性能。
+
+总而言之，build.rs文件在Rust生态中的vector项目中起到了关键的作用，它通过codegen库自动生成prometheus_parser.rs文件，进而为向量项目提供了高效的prometheus文本格式解析和处理的功能。
+

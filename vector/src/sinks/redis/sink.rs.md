@@ -1,0 +1,12 @@
+# File: vector/src/sinks/redis/sink.rs
+
+vector/src/sinks/redis/sink.rs文件的作用是实现将数据推送到Redis的功能。在Rust生态的vector项目中，Sink是一种数据传输目标，用于将数据从输入源推送到输出目标。
+
+在sink.rs中，RedisSink结构体定义了与Redis交互的方法和数据结构。它实现了Sink trait，具有start、poll、config方法等等。start方法用于初始化Redis连接并建立与Redis服务器的通信。poll方法则负责将从输入源接收到的数据写入Redis。
+
+RedisRetryLogic结构体定义了重试逻辑。当在向Redis写入数据时遇到错误，RedisRetryLogic负责确定是否进行重试，以及在多次重试失败后是否放弃。
+
+RedisSink和RedisRetryLogic结构体通过impl块与Sink trait和RetryLogic trait相关联。通过实现这些trait，RedisSink可以在vector中作为一种有效的数据传输目标，并通过RedisRetryLogic来执行重试逻辑。
+
+总的来说，sinks/redis/sink.rs文件的作用是提供了使用Redis作为数据传输目标的功能，定义了与Redis交互的方法和数据结构，并实现了重试逻辑以确保数据能够成功推送到Redis。
+

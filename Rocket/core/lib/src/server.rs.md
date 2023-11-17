@@ -1,0 +1,14 @@
+# File: Rocket/core/lib/src/server.rs
+
+Rocket/core/lib/src/server.rs文件是Rocket框架中的服务器模块，定义了Rocket服务器的主要实现。
+
+该文件包含多个重要的结构体和函数，其中最重要的是Server和Config结构体。
+
+Server结构体表示Rocket服务器的实例，包含了绑定到特定IP地址和端口的监听器(listener)，以及各种配置信息。它负责接收客户端请求，并通过Router将请求分发到相应的处理器上进行处理。Server结构体还提供了启动、停止和处理请求的方法。
+
+Config结构体代表Rocket服务器的配置信息。它包含了一系列配置项，例如服务器的监听地址和端口，线程池的大小等。通过对Config进行配置，可以更改Rocket服务器的行为和性能。
+
+除了Server和Config结构体，该文件还定义了一些辅助结构体和函数。其中，RequestToken结构体是与请求相关的结构体之一，用于表示一个请求的令牌。它包含了请求的元数据，如请求ID和时间戳。RequestToken结构体的作用是在请求处理过程中用于跟踪、记录和检查请求的信息，以便在日志和错误处理等方面使用。
+
+总之，Rocket/core/lib/src/server.rs文件是Rocket框架中服务器的实现模块。通过定义Server和Config结构体，该文件提供了Rocket服务器的主要功能，包括接收和处理客户端请求，并提供了一些辅助结构体和函数来辅助请求的跟踪和处理。RequestToken结构体是其中的一种辅助结构体之一，用于表示请求的元数据。
+

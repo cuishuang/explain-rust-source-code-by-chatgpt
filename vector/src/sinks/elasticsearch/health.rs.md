@@ -1,0 +1,16 @@
+# File: vector/src/sinks/elasticsearch/health.rs
+
+在Rust生态的vector项目中，位于vector/src/sinks/elasticsearch/health.rs文件的作用是定义了与Elasticsearch健康检查相关的逻辑。
+
+在这个文件中，有两个主要的struct：ElasticsearchHealthLogic和ElasticsearchHealthChecker。
+
+ElasticsearchHealthLogic是一个逻辑处理器，负责根据配置与Elasticsearch健康检查相关的设置来处理健康检查的逻辑。它实现了SinkHealth以及SinkConfigHealth trait，这些trait定义了处理健康检查的方法和逻辑。
+
+ElasticsearchHealthChecker是一个具体的健康检查器，负责实际与Elasticsearch进行通信并检查其健康状态。它使用Elasticsearch REST API来发送检查请求，并解析返回的数据来确定 Elasticsearch是否健康。它还可以根据配置的时间间隔定期发送健康检查请求。
+
+这两个struct的主要作用是：
+1. ElasticsearchHealthLogic: 定义了与Elasticsearch健康检查相关的处理逻辑和方法，包括设置健康检查的配置、处理健康检查的请求和响应等。
+2. ElasticsearchHealthChecker: 通过与Elasticsearch REST API通信来执行实际的健康检查操作，并提供了定期发送健康检查请求的功能。
+
+总的来说，这些结构体的目标是使vector能够与Elasticsearch进行健康检查，并根据其健康状态进行相应的处理和报告。
+

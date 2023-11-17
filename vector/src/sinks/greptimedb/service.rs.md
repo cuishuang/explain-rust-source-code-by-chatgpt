@@ -1,0 +1,14 @@
+# File: vector/src/sinks/greptimedb/service.rs
+
+在Rust生态vector项目中，vector/src/sinks/greptimedb/service.rs文件用于实现与GreptimeDB数据库的交互逻辑。
+
+GreptimeDBRetryLogic结构体是用于实现GreptimeDB的重试逻辑。它包含了重试操作所需的配置和方法，例如最大重试次数、重试时间间隔等。
+
+GreptimeDBRequest结构体表示向GreptimeDB发送的请求，包含了要写入数据库的数据。
+
+GreptimeDBBatchOutput结构体是GreptimeDB批处理操作的输出结果。它记录了批处理请求的状态、成功和失败的记录数量等信息。
+
+GreptimeDBService结构体是GreptimeDB的服务实现。它负责与GreptimeDB建立连接并处理集成服务的请求。GreptimeDBService包含了GreptimeDB的地址、数据库名称、连接和请求的超时时间等配置信息。它还实现了根据配置进行重试的逻辑，并提供了将数据写入GreptimeDB的方法。
+
+总体而言，vector/src/sinks/greptimedb/service.rs文件定义了与GreptimeDB数据库交互所需的请求结构体、重试逻辑和服务实现。通过这些结构体和方法，Vector能够将数据有效地写入GreptimeDB数据库。
+

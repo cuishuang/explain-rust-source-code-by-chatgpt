@@ -1,0 +1,12 @@
+# File: vector/src/api/schema/metrics/sent_events.rs
+
+在Rust生态vector项目的源代码中，vector/src/api/schema/metrics/sent_events.rs文件的作用是定义用于跟踪发送事件的指标。
+
+SentEventsTotal(Metric)是一个结构体，它表示事件的总数，通过统计发送的事件数量来跟踪。这个结构体实现了serde的Serialize和Deserialize trait，以便在序列化和反序列化时对其进行处理。
+
+ComponentSentEventsTotal是一个结构体，用于表示特定组件发送的事件数量。它包含字段component_id，用于标识具体的组件，以及一个SentEventsTotal类型的字段metric，用于跟踪该组件所发送的事件数量。
+
+ComponentSentEventsThroughput是另一个结构体，用于跟踪组件发送事件的吞吐量。它包含字段component_id，用于标识组件，以及一个通过时间窗口测量吞吐量的字段throughput。该结构体还实现了serde的Serialize和Deserialize trait。
+
+这些结构体的作用是为vector项目提供了一种方便的方式来跟踪和统计事件的发送情况，以便进行性能分析和优化。
+

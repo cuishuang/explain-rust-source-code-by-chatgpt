@@ -1,0 +1,18 @@
+# File: vector/lib/codecs/src/common/protobuf.rs
+
+在Rust生态的vector项目中，vector/lib/codecs/src/common/protobuf.rs文件是用于实现与Protocol Buffers（简称Protobuf）相关的功能的源代码文件。
+
+Protobuf是一种高效的数据序列化格式，它可以用于将结构化数据序列化为二进制格式，以用于数据存储、数据交换或远程过程调用等场景。Protobuf提供了简单易用的定义语言来定义消息的结构，然后自动生成相应的代码。
+
+在vector项目中，protobuf.rs文件提供了与Protobuf相关的实用函数和结构体，这些功能主要包括以下几个方面：
+
+1. Protobuf结构的解析和序列化：提供了将Protobuf二进制数据转换成Rust结构体、或将Rust结构体转换成Protobuf二进制数据的函数。例如，可以通过函数`decode`将Protobuf数据解析为Rust结构体，或使用函数`encode`将Rust结构体序列化为Protobuf二进制数据。
+
+2. Protobuf字段的编码和解码：Protobuf消息中的字段可能包含不同类型的数据，例如整数、字符串、嵌套的消息等，protobuf.rs文件提供了相应的函数来对这些字段进行编码和解码。例如，可以通过函数`encode_length_delimited`将Protobuf字段编码为长度+值式的二进制格式，或使用函数`decode_length_delimited`将该格式的数据解码为原始字段值。
+
+3. Protobuf的枚举类型支持：Protobuf中可以使用枚举类型定义字段的取值范围，protobuf.rs文件提供了与枚举类型相关的函数和结构体，用于解析和处理这些字段。
+
+4. Proto registry的管理：Vector项目可能会使用多个Protobuf定义文件，protobuf.rs文件提供了与Proto registry相关的函数和结构体，用于管理不同Protobuf版本的注册和查找工作。
+
+通过以上提供的功能，protobuf.rs文件大大简化了Vector项目在与Protobuf数据交互时的开发工作，使得开发者能够更方便地处理Protobuf相关的数据和操作。
+

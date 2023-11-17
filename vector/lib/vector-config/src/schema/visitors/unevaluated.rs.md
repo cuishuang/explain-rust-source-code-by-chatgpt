@@ -1,0 +1,12 @@
+# File: vector/lib/vector-config/src/schema/visitors/unevaluated.rs
+
+文件unevaluated.rs位于vector项目的vector-config库的schema/visitors目录中。它的主要作用是提供一组访问者以检查和处理模式中的非评估属性。
+
+在Rust中，属性是指schema中定义的对象的附加信息。Unevaluated属性表示一些属性或字段无法通过解析或评估进行验证，因为它们可能取决于其他因素。这个文件中的访问者用于处理这些无法评估的属性。
+
+具体来说，DisallowUnevaluatedPropertiesVisitor结构体用于禁止非评估属性。它实现了serde_json::Value访问者（serde_json是一个用于JSON序列化和反序列化的Rust库）。它遍历模式中的属性，并根据规则检查它们是否为评估属性，如果不是，则会产生相应的错误。
+
+MarkableReferent结构体负责标记对象的参考。它的作用是避免重复处理参考对象，因为参考在路径中是唯一且递增的。这个结构体内部维护了一个HashSet，其中存储了已经处理过的参考对象，在处理期间对对象进行标记和检查。
+
+通过使用这两个结构体，unevaluated.rs文件能够提供一套访问者，用于检查和处理schema中的非评估属性，从而增强了vector项目的灵活性和可靠性。
+

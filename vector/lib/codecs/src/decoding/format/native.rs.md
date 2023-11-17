@@ -1,0 +1,14 @@
+# File: vector/lib/codecs/src/decoding/format/native.rs
+
+在Rust生态的vector项目中，vector/lib/codecs/src/decoding/format/native.rs文件的作用是定义了与本地二进制格式相关的解码器。
+
+具体来说，该文件中的代码实现了用于解析本地二进制格式数据的decoder。这个本地二进制格式是vector项目中使用的一种特殊格式，用于高效地传输和存储数据。因此，native.rs文件中的代码是实现了该格式的解析逻辑。
+
+在该文件中，关键的结构体包括NativeDeserializerConfig和NativeDeserializer。
+
+NativeDeserializerConfig结构体是用于配置解析器的参数，它定义了一些解析器的配置选项，例如位于文件或者socket中的数据源以及解析的起始位置等。通过配置这些参数，可以灵活地适应不同的数据源和解析需求。
+
+NativeDeserializer结构体是实际进行解析的解码器。它包含了解析的状态和中间变量，并提供了解析的方法和功能。该结构体可以根据给定的配置和数据源，逐步解析数据，并将其转化为vector项目中的内部数据结构。
+
+总之，native.rs文件中的代码实现了与本地二进制格式相关的解码器，通过定义NativeDeserializerConfig结构体来配置解析的参数，然后使用NativeDeserializer结构体来执行解析逻辑，将二进制数据转化为vector项目的内部数据结构。
+

@@ -1,0 +1,14 @@
+# File: Rocket/core/lib/src/fs/file_name.rs
+
+在Rocket web框架的源代码中，Rocket/core/lib/src/fs/file_name.rs文件的作用是定义了与文件名相关的数据结构和函数。
+
+文件名在Rocket中是一个重要的概念，在路由和静态文件处理等功能中经常被使用。该文件中定义了三个struct：FileName、NormalizedFileName和ResolvedFileName，它们分别代表了不同阶段的文件名处理过程。
+
+1. FileName(struct): FileName是一个简单的包装类型，它包含一个str类型的文件名。它提供了一些与文件名相关的操作方法，如从字符串创建文件名、将文件名转换为url编码的字符串等。FileName的主要作用是提供了一个统一的文件名类型，在Rocket内部各个模块之间传递和处理文件名时使用。
+
+2. NormalizedFileName(struct): NormalizedFileName是对文件名进行规范化处理后的表示。规范化包括去掉名称中的多余的空格、换行符等字符，并将所有字符转换为小写。这样可以保证在不同平台上文件名的一致性，并且简化文件名比较的操作。NormalizedFileName提供了一些方法用于规范化和比较文件名。
+
+3. ResolvedFileName(struct): ResolvedFileName表示文件名在解析过程中的中间结果。Rocket在处理静态文件时，会先将请求的路径与常规路由进行匹配，如果匹配失败，则认为请求的路径是一个文件路径，并尝试解析静态文件。ResolvedFileName包含了解析过程中生成的文件系统路径和MimeType等信息。它的主要作用是在文件解析过程中，存储和传递解析结果。
+
+这些结构体在Rocket的文件系统处理中扮演着重要的角色。它们提供了对文件名进行处理、规范化和解析的功能，使得Rocket可以方便地处理和传递文件名，并为后续的文件操作提供了基础。
+

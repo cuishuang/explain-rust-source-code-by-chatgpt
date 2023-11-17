@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_lints/src/types/linked_list.rs
+
+文件linked_list.rs的作用是定义了一个名为LinkedList的类型。在rust-clippy的代码中，LinkedList类型用来表示一个链表数据结构，它可以包含任意类型的元素。
+
+链表是一种常用的线性数据结构，不同于数组，链表中的元素通过节点的指针进行连接。LinkedList类型使用了标准库中的LinkedList实现，它是一个双向链表，即每个节点除了保存指向下一个节点的指针外，还保存指向前一个节点的指针。
+
+LinkedList类型在代码中的主要作用是为一些与链表相关的lint提供支持。lint是一种代码静态分析工具，用于检查潜在的代码质量问题和错误。rust-clippy是一个用于检查Rust代码中潜在问题的lint工具。
+
+在linked_list.rs文件中，首先定义了一个名为linked_list_iter的迭代器结构，它用来迭代LinkedList中的元素。接着定义了LinkedList类型，并为它实现了一些方法和特性。例如，实现了push方法，用来将一个新元素添加到链表的末尾；实现了pop方法，用来从链表的末尾移除一个元素等。除此之外，还实现了一些与链表相关的特性，如IntoIterator和FromIterator等，可以使得LinkedList类型可以方便地与其他Rust的迭代器和集合类型进行交互。
+
+总结来说，linked_list.rs文件的作用是定义了一个链表数据结构类型LinkedList，在rust-clippy lint工具中用于实现一些与链表相关的功能和lint检查。它是rust-clippy工具中一部分重要的基础构建块之一，用于提供链表的操作和支持。
+

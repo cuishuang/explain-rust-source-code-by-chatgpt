@@ -1,0 +1,18 @@
+# File: vector/src/sinks/aws_cloudwatch_metrics/mod.rs
+
+在Rust生态vector项目中，vector/src/sinks/aws_cloudwatch_metrics/mod.rs文件定义了用于将日志数据发送到AWS CloudWatch Metrics的相关功能。
+
+该文件中的CloudWatchMetricsDefaultBatchSettings结构体定义了CloudWatch Metrics的默认批处理设置，如批处理大小、批处理延迟等。这些默认设置可以根据需求进行修改。
+
+CloudWatchMetricsSinkConfig结构体用于配置CloudWatch Metrics的参数，包括AWS的区域（region）、命名空间（namespace）、桶大小（buffer_size）、最大单位时间（max_queue_size）、和重试策略（retry_logic）等。
+
+CloudwatchMetricsClientBuilder结构体是用于构建CloudWatch Metrics客户端的构建器。它包含AWS的区域、身份验证凭证等信息。
+
+AwsCloudwatchMetricNormalize结构体定义了用于转换和规范化指标数据的方法。它将原始事件数据转换为符合CloudWatch Metrics要求的格式。
+
+CloudWatchMetricsRetryLogic结构体实现了CloudWatch Metrics的重试逻辑。它决定了在失败的情况下如何重试发送指标数据。
+
+CloudWatchMetricsSvc结构体是CloudWatch Metrics实现的核心服务。它使用上述的配置和工具来发送指标数据到AWS CloudWatch Metrics，并处理重试逻辑、错误处理等。
+
+总而言之，vector/src/sinks/aws_cloudwatch_metrics/mod.rs文件提供了与AWS CloudWatch Metrics相关的配置、转换和发送指标数据的功能，为vector项目提供了将日志数据发送到AWS CloudWatch Metrics的能力。
+

@@ -1,0 +1,20 @@
+# File: rust-clippy/clippy_lints/src/four_forward_slashes.rs
+
+在rust-clippy的源代码中，four_forward_slashes.rs文件的作用是实现clippy_lints中的一个lint规则，该规则用于检查代码中使用四个正斜杠（////）开头的注释。
+
+具体而言，该lint规则的目的是识别并警告代码中的特定注释模式，以便开发人员能够注意和修复可能出现的问题。
+
+详细介绍该文件的功能以及其中的代码如下：
+
+首先，该文件定义了一个新的结构体FourForwardSlashes，并实现了一个Trait LintPass，该Trait用于定义Lint规则的行为和功能。
+
+接下来，FourForwardSlashes结构体中有一些与Lint规则相关的属性和方法。其中最重要的是register_counters方法和check_attrs方法。
+
+register_counters方法用于指定Lint规则需要跟踪的统计信息。在该文件中，该方法注册了一个名为FOUR_FORWARD_SLASH_COUNTER的计数器，用于跟踪检测到的四个正斜杠开头注释的数量。
+
+check_attrs方法是实际执行Lint规则的核心方法。它会遍历代码中的每个注释，并对以四个正斜杠开头的注释进行检查。如果检测到以四个正斜杠开头的注释，则会增加FOUR_FORWARD_SLASH_COUNTER计数器的值，并生成一个警告信息。
+
+此外，还有一些辅助函数和结构体定义，用于更方便地处理注释和警告信息的生成。
+
+总结起来，该文件的作用是实现一个Lint规则，用于检测代码中四个正斜杠开头的注释，并生成相应的警告信息。这样的规则可以帮助开发人员发现可能存在的问题并进行修复。
+

@@ -1,0 +1,16 @@
+# File: Rocket/examples/state/src/managed_hit_count.rs
+
+在Rocket web框架的源代码中，Rocket/examples/state/src/managed_hit_count.rs文件的作用是实现一个简单的计数器应用示例。该示例展示了如何使用Rocket框架中的状态管理功能来创建和维护一个原子计数器。
+
+在文件中定义了一个HitCount结构体，它包含一个AtomicUsize类型的字段count，用于表示访问该计数器的次数。AtomicUsize是Rust中用于实现原子计数的类型，它能够确保多个线程并发访问时的安全性。
+
+HitCount结构体实现了一个方法new，用于创建一个新的计数器实例，并初始化count字段为0。除此之外，还定义了一个方法inc，用于增加计数器的值。通过调用AtomicUsize类型的fetch_add方法，可以以原子方式增加count的值。
+
+而managed_hit_count.rs文件主要的作用是演示如何在Rocket框架中使用状态管理功能。它首先使用rocket::State<HitCount>类型的state来声明了一个状态对象，用于存储计数器。在Rocket应用中，State<T>用于共享和管理应用的全局状态。
+
+然后，在"/"路径上定义了一个GET请求的路由处理函数，该函数接收一个参数state，类型是rocket::State<HitCount>，用于访问计数器的状态。
+
+在处理函数中，通过state字段获取HitCount结构体实例，并调用inc方法增加计数器的值。然后，返回一个包含计数器值的字符串作为响应。每次访问这个路由时，计数器的值都会增加。
+
+这个示例的目的是展示Rocket框架的状态管理功能。它通过使用AtomicUsize和rocket::State<HitCount>，实现了多线程安全的计数器，并演示了如何在路由处理函数中使用共享状态。这样可以轻松地实现一些需要共享和修改全局状态的应用逻辑。
+

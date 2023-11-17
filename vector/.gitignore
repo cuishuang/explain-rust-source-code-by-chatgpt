@@ -1,0 +1,21 @@
+cargo-timing*.html
+*.pyc
+*.iml
+*.tmp
+*~
+**/*.rs.bk
+.DS_Store
+.dir-locals.el
+checkpoints/*
+miniodat
+bench_output.txt
+sample.log
+scripts/package-lock.json
+target
+node_modules
+tests/data/wasm/*/target
+heaptrack.*
+massif.*
+
+# tilt
+tilt_modules/

@@ -1,0 +1,16 @@
+# File: vector/src/api/schema/mod.rs
+
+在Rust生态中，vector是一个高性能、可扩展的数据处理工具，它由一系列模块组成，其中包括src/api/schema/mod.rs文件。
+
+api/schema/mod.rs文件是vector项目中用于定义GraphQL API的模块之一。GraphQL是一种用于API查询和数据操纵的查询语言。在vector中，api/schema/mod.rs文件定义了GraphQL API的结构和操作。
+
+文件中的Query和Subscription是两个结构体，分别表示查询和订阅操作。这两个结构体属于GraphQL的类型系统中的操作类型，用于定义可以在API中执行的操作。
+
+在Query结构体中，可以定义多个字段，每个字段表示一种查询操作。这些查询操作可以从API中请求特定的数据。Query结构体中的字段可以包含参数，用于进一步细化查询的条件。
+
+而Subscription结构体表示订阅操作，用于实时订阅数据的变化。与Query类似，Subscription结构体中的字段也表示一种订阅操作，可以根据订阅条件获取实时更新的数据。
+
+这些Query和Subscription结构体定义了API的可用操作，通过在GraphQL API的schema中声明它们，可以让用户使用这些操作来查询和订阅数据。这样，用户可以通过使用Query进行数据的获取，或者通过Subscription实时接收数据的更新。
+
+总之，api/schema/mod.rs文件是vector项目中负责定义GraphQL API结构和操作的模块，其中Query和Subscription结构体分别定义了查询和订阅操作。这些结构体用于表示可用的操作和操作的参数，以便用户能够通过GraphQL API对数据进行获取和实时订阅。
+

@@ -1,0 +1,10 @@
+# File: vector/lib/vector-lookup/src/lookup_v2/optional_path.rs
+
+在Rust生态vector项目中，vector-lookup/src/lookup_v2/optional_path.rs文件是用于定义OptionalTargetPath和OptionalValuePath结构体。这些结构体用于处理查找向量中可选字段的路径。
+
+OptionalTargetPath结构体代表了一个可选字段的路径，它由一个或多个FieldPathSegment组成。FieldPathSegment结构体表示路径中的每个段，可以是一个字段名或一个数组索引。
+
+OptionalValuePath结构体代表了一个可选字段的路径，它由一个或多个ValuePathSegment组成。ValuePathSegment结构体表示路径中的每个段，可以是一个常量值或一个数组元素的下标。
+
+这些结构体的作用是为查找向量中的可选字段提供路径信息。它们帮助定义了查找可选字段所需的路径，并且可以在处理过程中进行相应的操作和筛选。通过使用OptionalTargetPath和OptionalValuePath，可以有效地处理向量中的可选字段，并进行相关的查找、筛选和转换操作。
+

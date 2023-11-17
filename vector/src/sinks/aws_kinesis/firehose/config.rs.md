@@ -1,0 +1,16 @@
+# File: vector/src/sinks/aws_kinesis/firehose/config.rs
+
+在Rust生态vector项目的源代码中，vector/src/sinks/aws_kinesis/firehose/config.rs文件的作用是定义AWS Kinesis Firehose的配置项。
+
+首先，KinesisFirehoseClientBuilder结构体是用于构建AWS Kinesis Firehose客户端的建造者模式。它允许用户指定AWS的凭证、区域和HTTP客户端配置等，以创建一个可用于与Kinesis Firehose交互的客户端。
+
+接下来，KinesisFirehoseDefaultBatchSettings结构体定义了Kinesis Firehose批量写入的默认设置，包括最大记录数、最大字节大小和最大等待时间。
+
+KinesisFirehoseSinkConfig结构体定义了Kinesis Firehose的配置项，包括AWS凭证、区域、数据流名称、重试逻辑、批量写入设置等。这些配置项用于初始化并配置KinesisFirehoseSink。
+
+KinesisRetryLogic结构体定义了重试逻辑，用于决定在发生错误时是否进行重试以及重试的间隔时间。
+
+HealthcheckError枚举定义了连接到AWS Kinesis Firehose时可能出现的健康检查错误，包括无效的AWS凭证、无效的区域、无法连接等。这些错误用于报告连接问题并采取相应的处理措施。
+
+总的来说，config.rs文件定义了AWS Kinesis Firehose的配置项和相关的结构体，用于配置和初始化Kinesis Firehose的Sink，以及处理与AWS Kinesis Firehose的连接和健康检查的错误。
+

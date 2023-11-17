@@ -1,0 +1,14 @@
+# File: Rocket/contrib/dyn_templates/src/lib.rs
+
+Rocket/contrib/dyn_templates/src/lib.rs是Rocket web框架中的一个文件，它的作用是提供动态模板渲染功能。
+
+在该文件中，有以下三个结构体：Template、TemplateInfo和ContextMacroCtxObject。这三个结构体分别用于不同的目的。
+
+1. Template结构体：该结构体代表一个模板文件，它的主要作用是指定一个模板文件的路径和文件类型（HTML、CSS等）。Template结构体实现了PartialEq和Clone等trait，以便在模板渲染过程中进行比较和克隆。
+
+2. TemplateInfo结构体：该结构体存储模板的信息，包括路径、文件类型以及模板的最后修改时间。TemplateInfo结构体实现了PartialEq和Ord等trait，以便在模板渲染过程中进行比较和排序。
+
+3. ContextMacroCtxObject结构体：该结构体是一个宏上下文对象，用于在模板渲染时传递上下文信息。ContextMacroCtxObject结构体的主要作用是提供宏调用时的上下文对象，使模板中的宏能够访问和操作该对象的上下文信息。
+
+这些结构体共同提供了在Rocket中进行动态模板渲染的能力。通过使用Template结构体指定模板文件的路径和类型，使用TemplateInfo结构体存储模板的信息，并通过ContextMacroCtxObject结构体传递上下文信息，Rocket可以根据需要动态加载和渲染模板文件，并在web应用程序中使用模板来生成响应内容。
+

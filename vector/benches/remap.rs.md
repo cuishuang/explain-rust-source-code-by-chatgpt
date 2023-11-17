@@ -1,0 +1,12 @@
+# File: vector/benches/remap.rs
+
+vector/benches/remap.rs是Rust生态中vector项目的一个源代码文件，其主要作用是通过将一个范围的值重新映射到另一个范围来测试vector库中的remap函数的性能。
+
+在该文件中，首先引入了vector库的相关模块，以及用于性能测试的criterion库。接着定义了一个benchmark函数，该函数使用了criterion库提供的Benchmark组件，用于执行性能测试。
+
+在benchmark函数中，先创建了一个包含1000个随机整数的Vector，然后定义了一个closure函数，该函数执行了remap操作。remap函数接收两个参数：源范围和目标范围，并将源范围中的值映射到目标范围中。接下来，通过调用c.bench_function函数来启动性能测试。
+
+在性能测试中，benchmark函数将执行1亿次remap操作，并对其进行计时。最后，性能测试的结果将输出到控制台，包括每秒执行的操作数以及总运行时间等信息。
+
+通过remap.rs文件中的性能测试，开发人员可以评估vector库中remap函数的性能表现，从而进行性能优化和改进。性能测试可以帮助开发人员确定在不同输入范围下的remap函数的性能瓶颈，以及是否需要对其进行优化。
+

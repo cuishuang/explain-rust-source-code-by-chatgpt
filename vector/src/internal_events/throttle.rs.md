@@ -1,0 +1,12 @@
+# File: vector/src/internal_events/throttle.rs
+
+vector/src/internal_events/throttle.rs这个文件实现了事件的节流（throttling）功能。节流是指限制一个事件流的频率，以防止事件过于频繁地触发。
+
+文件中定义了一个Throttler结构体，用于实现节流功能。Throttler用一个时间窗口（window）来限制事件的触发速率。具体来说，Throttler会记录上一次事件的时间戳，并在每次新事件到来时与上一次事件的时间戳进行比较。如果两次事件之间的时间间隔小于时间窗口的大小，则新事件会被丢弃；否则，新事件会通过。
+
+文件中还定义了几个相关的结构体，包括ThrottleControl、ThrottleEventDiscarded和ThrottleRate。其中ThrottleControl用于控制和配置节流功能，ThrottleEventDiscarded用于表示丢弃的事件，ThrottleRate用于表示节流的速率。
+
+ThrottleControl结构体包含了节流的配置选项，例如时间窗口的大小（in_flight_eviction_interval）和最大速率限制（max_eviction_rate）。ThrottleEventDiscarded结构体用于记录被节流器丢弃的事件，包含了丢弃的事件数量和原因。ThrottleRate结构体表示节流的速率，包括每秒最大事件数量和事件的平均到达速率。
+
+这些结构体和节流功能的实现可以帮助用户在处理高频事件时，通过限制事件触发的速率来确保系统的稳定性和性能。
+

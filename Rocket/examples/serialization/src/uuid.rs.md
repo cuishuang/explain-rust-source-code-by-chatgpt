@@ -1,0 +1,20 @@
+# File: Rocket/examples/serialization/src/uuid.rs
+
+在Rocket/examples/serialization/src/uuid.rs文件中的代码是一个示例，用于演示在Rocket web框架中如何进行UUID的序列化和反序列化。
+
+该文件中定义了一个名为People的结构体，它是一个HashMap，键为Uuid，值为一个名为Person的结构体。这里使用HashMap的目的是为了存储多个Person对象，并通过其对应的唯一标识符Uuid进行索引和访问。
+
+Person结构体定义了一个名为name的字符串字段和一个年龄字段(age)。它是一个简单的数据结构，代表了一个个人的基本信息。
+
+在示例中，首先定义了两个Person对象，分别使用不同的Uuid作为键进行索引。然后，将这两个Person对象插入到People结构体的HashMap中。
+
+接下来，实现了针对Person结构体的序列化和反序列化操作。在Rocket web框架中，由于需要与HTTP请求和响应进行交互，需要将数据转换为特定的格式（比如JSON）。因此，需要实现Person结构体的序列化和反序列化trait 。
+
+首先，在Person结构体上实现了serde Serialize trait，使得Person对象可以被序列化为JSON格式的字符串。这里使用了serde_json crate提供的to_string函数进行序列化操作。
+
+然后，在Person结构体上实现了serde Deserialize trait，使得JSON格式的字符串可以被反序列化为Person对象。这里使用了serde_json crate提供的from_str函数进行反序列化操作。
+
+最后，在示例的main函数中，演示了对People结构体中的Person对象进行序列化和反序列化的操作。首先，将People结构体序列化为JSON格式的字符串，并打印输出。然后，将该JSON字符串反序列化为People结构体，并打印输出。
+
+这个示例的目的是展示在Rocket web框架中如何进行UUID的序列化和反序列化操作，以及如何使用HashMap存储多个Person对象。
+

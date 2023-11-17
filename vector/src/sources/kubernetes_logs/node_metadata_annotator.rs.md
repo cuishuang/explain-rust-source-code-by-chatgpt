@@ -1,0 +1,12 @@
+# File: vector/src/sources/kubernetes_logs/node_metadata_annotator.rs
+
+在Rust生态的vector项目的源代码中，vector/src/sources/kubernetes_logs/node_metadata_annotator.rs文件的作用是为Kubernetes日志源添加节点元数据注释。这个文件包含了两个重要的结构体：FieldsSpec和NodeMetadataAnnotator。
+
+首先，FieldsSpec结构体定义了一个字段规范，用于表示需要从Kubernetes的节点元数据中提取的字段。它包含了一系列字段的名称和数据类型，例如节点的IP地址、标签、名称等。这个结构体用于配置需要提取哪些字段。
+
+NodeMetadataAnnotator结构体是实际执行节点元数据注释的主要逻辑。它使用FieldsSpec中配置的字段规范来从Kubernetes API服务器获取节点的元数据，并将这些元数据添加到日志事件中作为注释。它还可以选择性地过滤节点，只在满足一些特定条件的节点上添加注释，例如节点的标签或名称。
+
+NodeMetadataAnnotator还负责在刷新元数据时处理错误和重试。它会定期从Kubernetes API服务器获取节点元数据，并将其缓存在内存中，以供后续的日志事件处理。在刷新元数据时，NodeMetadataAnnotator能够处理可能出现的网络错误、API访问受限或请求超时等情况，并在最大尝试次数后终止刷新。
+
+总结起来，NodeMetadataAnnotator结构体用于从Kubernetes的节点元数据中提取字段，并将其作为注释添加到日志事件中。FieldsSpec结构体则用于配置提取哪些字段。这些结构体是为了增强日志数据的可读性和可用性而设计的。
+

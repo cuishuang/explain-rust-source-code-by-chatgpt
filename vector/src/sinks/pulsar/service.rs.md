@@ -1,0 +1,14 @@
+# File: vector/src/sinks/pulsar/service.rs
+
+在Rust生态中，vector是一个开源的数据传输工具，用于安全、高效地收集、路由和处理数据。vector/src/sinks/pulsar/service.rs文件是vector项目中的一个模块，负责处理与Apache Pulsar进行交互的相关逻辑。
+
+该文件定义了三个结构体：PulsarRequest、PulsarResponse和PulsarService<Exe。
+
+1. PulsarRequest结构体用于表示向Pulsar发送请求的数据结构。它包含了请求类型、请求的具体内容及相关的配置信息。通过PulsarRequest，可以向Pulsar发起消息发送、主题创建和删除等操作。
+
+2. PulsarResponse结构体用于表示从Pulsar接收到的响应数据结构。它包含了响应类型、响应的具体内容及相关的元数据信息。通过PulsarResponse，可以获取Pulsar对请求的响应结果。
+
+3. PulsarService<Exe>结构体是一个泛型结构体，用于提供与Pulsar交互的服务。它实现了SinkService特性，具有从向量提取事件并将其发送到Pulsar的功能。通过PulsarService，可以处理Pulsar请求并获取Pulsar的响应。
+
+在vector中，与Pulsar交互的逻辑由PulsarService负责，利用PulsarRequest向Pulsar发送请求，然后处理PulsarResponse以获取响应结果。这个文件的作用是将vector与Pulsar集成，使得用户可以通过vector将数据传输到Pulsar，从而实现数据的收集、处理和传输。
+

@@ -1,0 +1,16 @@
+# File: vector/src/sinks/databend/service.rs
+
+在Rust生态中，vector是一个用于处理和转换数据流的工具。在vector项目的源代码中，vector/src/sinks/databend/service.rs是与Databend服务相关的代码文件。
+
+该文件定义了几个关键的结构体：DatabendRetryLogic、DatabendService、DatabendRequest和DatabendResponse。这些结构体在整个文件中起到不同的作用。
+
+1. DatabendRetryLogic结构体：它定义了数据处理中出现失败或错误时的重试逻辑。它可以根据特定的条件和策略来决定是否进行重试操作，以确保数据能够正确地发送到Databend服务。
+
+2. DatabendService结构体：它是整个Databend服务的实现。它包含了处理与Databend服务相关的逻辑和方法。通过该结构体，可以连接到Databend服务、发送数据并处理响应。
+
+3. DatabendRequest结构体：它用于表示发送到Databend服务的请求。该结构体包含了与请求相关的信息，例如请求的类型、数据等。它可以帮助构建和发送正确的请求给Databend服务，并期望得到响应。
+
+4. DatabendResponse结构体：它表示从Databend服务接收到的响应。该结构体包含了响应的类型、数据等信息。它可以帮助解析和处理从Databend服务返回的响应，以便在后续的数据处理中使用。
+
+这些结构体共同为与Databend服务相关的数据传输和处理提供了必要的功能和逻辑。通过这些结构体的使用，vector可以与Databend服务交互并实现数据的传输和处理。
+

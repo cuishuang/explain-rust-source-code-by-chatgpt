@@ -1,0 +1,14 @@
+# File: vector/src/internal_telemetry/mod.rs
+
+在Rust生态的vector项目中，vector/src/internal_telemetry/mod.rs文件的作用是实现内部遥测功能。
+
+内部遥测是一种用于收集、分析和报告软件系统性能和行为的机制。vector项目使用此机制来收集关于Vector自身运行情况的有用信息，以便开发者可以更好地了解和改进Vector的性能和稳定性。
+
+在vector/src/internal_telemetry/mod.rs文件中，首先定义了一个名为Telemetry的结构体。这个结构体包含了一些用于记录统计和度量数据的字段，例如Vector的启动时间、错误数、日志消息数等。这些字段跟踪和记录了Vector在运行过程中发生的各种事件和状态。
+
+接下来，Telemetry结构体实现了一些与内部遥测相关的功能方法。其中包括记录启动时间的方法、增加错误计数的方法、增加日志消息计数的方法等。这些方法用于在Vector运行过程中更新Telemetry结构体的字段，以及提供一些用于访问这些字段的接口。
+
+此外，Telemetry结构体还实现了一些与内部遥测相关的功能函数，例如将Telemetry结构体的统计数据以JSON格式输出到日志文件中。这些功能函数可以被其他模块调用，以实现将Telemetry结构体中的数据导出、分析和报告的功能。
+
+总之，vector/src/internal_telemetry/mod.rs文件实现了Vector项目中的内部遥测功能，它通过记录和跟踪Vector运行过程中的统计和度量数据，为开发者提供了一种了解和改进Vector性能和稳定性的方式。
+

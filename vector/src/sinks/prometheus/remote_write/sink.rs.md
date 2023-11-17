@@ -1,0 +1,12 @@
+# File: vector/src/sinks/prometheus/remote_write/sink.rs
+
+在Rust生态vector项目的源代码中，vector/src/sinks/prometheus/remote_write/sink.rs文件的作用是实现了将指标数据发送到远程写入（remote write）的Prometheus存储后端的功能。
+
+首先，RemoteWriteMetric结构体定义了将要发送的指标数据的字段和属性，例如metric_name、timestamp、value等。PrometheusRemoteWriteDefaultBatchSettings结构体定义了用于配置批量发送的设置，例如批次大小、最大等待时间等。PrometheusTenantIdPartitioner结构体用于根据特定的字段将指标分区，以便将它们发送到不同的租户。
+
+EventCollection结构体是一个简单的容器，用于存储将要发送的指标数据。RemoteWriteSink<S>结构体是一个sink实现，它使用远程写入协议将收集到的指标数据发送到Prometheus存储后端。可以通过配置文件选择不同的sink实现。
+
+BatchedMetrics是一个枚举类型，它定义了不同的批量处理策略。每个枚举值都有不同的行为，例如Flush、Append、Truncate等。
+
+总之，vector/src/sinks/prometheus/remote_write/sink.rs文件用于实现将指标数据发送到远程写入的Prometheus存储后端的功能，并提供了相关的配置和处理逻辑。各个结构体和枚举类型有不同的作用，例如定义指标数据的结构、配置批量处理策略、实现发送逻辑等。
+

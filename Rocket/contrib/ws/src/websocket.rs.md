@@ -1,0 +1,12 @@
+# File: Rocket/contrib/ws/src/websocket.rs
+
+在Rust生态Rocket web框架的源代码中，Rocket/contrib/ws/src/websocket.rs文件的作用是实现了对WebSocket协议的支持，提供了处理WebSocket连接和消息的功能。
+
+WebSocket结构体是实现了Rocket的Responder trait，用于在Rocket应用中处理WebSocket连接。它提供了WebSocket协议的握手和消息处理功能。WebSocket结构体使用了一个Rocket的state对象（即State<'r>）来保存WebSocket连接的状态和处理函数。
+
+Channel<'r>结构体是一个用于发送和接收WebSocket消息的双向通道。它是WebSocket结构体的一部分，用于存储与客户端进行消息交换的通道。Channel结构体实现了Rocket的Stream trait和Sink trait，使得Rocket应用可以方便地发送和接收WebSocket消息。
+
+MessageStream<'r>结构体实现了Rocket的AsyncRead trait和Rocket的Stream trait，用于从WebSocket连接接收消息。它是WebSocket结构体的一部分，用于处理从客户端到服务器的消息流。MessageStream结构体提供了异步读取和流式处理WebSocket消息的功能。
+
+通过这些结构体和函数的组合，Rocket/contrib/ws/src/websocket.rs文件实现了对WebSocket协议的支持，使得Rocket web框架可以方便地处理WebSocket连接和消息交换。这对于需要实时双向通信的应用程序非常有用，比如实时聊天应用、实时数据更新等。
+

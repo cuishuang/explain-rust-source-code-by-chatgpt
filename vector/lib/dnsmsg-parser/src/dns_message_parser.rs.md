@@ -1,0 +1,16 @@
+# File: vector/lib/dnsmsg-parser/src/dns_message_parser.rs
+
+在Rust生态中，vector是一种高性能、日志聚合和数据处理工具。vector的vector/lib/dnsmsg-parser/src/dns_message_parser.rs文件实现了一个用于解析DNS消息的解析器。
+
+DnsMessageParser是一个解析器的结构体，用于解析和解码DNS消息。它包含了一些字段和方法，用于保存和操作解析过程中的各种状态和数据。
+
+DnsMessageParserError是解析器可能遇到的错误的枚举。它定义了不同类型的错误，以及相应的错误信息。这些错误用于帮助开发者理解解析过程中可能出现的问题。
+
+DnsMessageParser的主要作用是将二进制的DNS消息解析为结构化的Rust数据类型。它通过读取二进制数据，并根据DNS消息的协议规范将其解析为相应的DNS数据结构，如DNS消息头、问题部分、回答部分等。
+
+DnsMessageParser的方法包括解析消息头、解析消息体、解析问题部分、解析回答部分等。这些方法根据消息的协议规范进行解析，并将解析结果存储在合适的数据结构中。
+
+DnsMessageParserError的枚举定义了不同类型的解析错误。这些错误包括了消息格式错误、数据解析错误等。当解析器遇到错误时，它将返回相应的错误类型，以帮助开发者识别和定位解析过程中可能出现的问题。
+
+总之，DnsMessageParser是用于解析DNS消息的解析器，它负责将二进制的DNS消息解析为结构化的Rust数据类型，并提供了相应的错误处理机制。它的作用是提供对DNS消息的解析和处理能力，帮助开发者在Rust生态中进行DNS相关的开发工作。
+

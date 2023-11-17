@@ -1,0 +1,14 @@
+# File: vector/src/internal_events/eventstoredb_metrics.rs
+
+在Rust生态的vector项目中，vector/src/internal_events/eventstoredb_metrics.rs文件的作用是定义了与EventStoreDB（一个数据库）相关的指标和错误类型。
+
+该文件中定义了一个名为`EventStoreDbMetrics`的结构体，它用于表示EventStoreDB的指标数据。它包含了多个字段，每个字段代表了EventStoreDB中的一个指标，比如存储大小、读取数量等等。`EventStoreDbMetrics`结构体还提供了一些方法，可以用于解析从EventStoreDB获取到的指标数据。
+
+此外，该文件还定义了两个与错误处理相关的结构体。
+
+1. `EventStoreDbMetricsHttpError`结构体用于表示与HTTP请求相关的错误。它包含一个`error`字段，用于存储具体的错误信息。
+
+2. `EventStoreDbStatsParsingError`结构体是用于表示从EventStoreDB中获取指标数据时出现的解析错误。它包含多个字段，用于存储解析错误发生的具体上下文和错误信息。
+
+这些结构体的作用是提供一种在Vector中处理EventStoreDB指标和错误的机制。通过定义这些结构体，可以方便地在代码中对EventStoreDB指标进行操作和处理，同时能够更好地处理与指标相关的错误情况。
+

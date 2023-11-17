@@ -1,0 +1,14 @@
+# File: vector/lib/vector-core/src/event/lua/event.rs
+
+在Rust生态vector项目中，vector-core/src/event/lua/event.rs文件的作用是定义了与Lua脚本交互的事件相关结构体和方法。
+
+LuaEvent是一个公开的枚举类型，定义了不同类型的Lua事件。Lua的事件分为两种：状态改变事件（StateChange）和源事件（Source）事件。状态改变事件表示Vector内部的某个状态发生了改变，而源事件表示Vector接收到了一个新的数据源事件。
+
+LuaEventHandler是Lua脚本的事件处理器。它通过实现EventProcessor trait来处理特定事件类型，如状态改变事件或源事件。LuaEventHandler内部通过调用Lua脚本的特定函数来处理事件。
+
+EventConfig和LuaEventHandlerConfig分别是配置Lua事件处理器和Lua脚本的结构体。EventConfig用于配置和初始化具体的事件处理器，而LuaEventHandlerConfig则用于配置Lua脚本的路径、函数名称等信息。
+
+Lua模块（LuaModule）是一个用于加载和执行Lua脚本的结构体。它使用rlua库与Lua交互，并提供了一系列函数来加载和执行Lua脚本。
+
+总结起来，vector-core/src/event/lua/event.rs文件的主要作用是定义了与Lua脚本交互的事件相关结构体和方法，包括LuaEvent枚举类型表示不同类型的Lua事件，LuaEventHandler用于处理Lua事件，EventConfig和LuaEventHandlerConfig用于配置事件处理器和Lua脚本，以及LuaModule用于加载和执行Lua脚本。
+

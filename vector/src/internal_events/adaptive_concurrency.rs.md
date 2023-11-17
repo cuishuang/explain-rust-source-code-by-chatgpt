@@ -1,0 +1,18 @@
+# File: vector/src/internal_events/adaptive_concurrency.rs
+
+在Rust生态vector项目的源代码中，vector/src/internal_events/adaptive_concurrency.rs文件的作用是实现了适应性并发功能，用于自动调整Vector的并发级别以提高性能。
+
+适应性并发功能在Vector中的应用可以在处理数据的负载增大时自动增加并发级别，以便更快地处理数据。这个功能的实现通过AdaptiveConcurrencyLimitData struct和相关的函数来完成。
+
+AdaptiveConcurrencyLimitData struct 是用于存储和管理适应性并发限制的数据结构。它有以下几个重要的字段和作用：
+
+1. `concurrency_limit`: 这个字段表示当前的并发限制级别，即允许同时运行的任务数量。它会根据当前的负载情况在不同的范围内进行调整。
+2. `max_concurrency_limit`: 这个字段表示并发限制的最大值。它是一个配置项，用于限制并发级别的增长，以防止过度资源消耗。
+3. `min_concurrency_limit`: 这个字段表示并发限制的最小值。它是一个配置项，用于限制并发级别的降低，以保持系统的响应性和资源利用率。
+
+除了上述字段外，AdaptiveConcurrencyLimitData还包括了一些用于收集和计算统计数据的字段和方法。这些数据用于衡量当前的负载状态和评估是否需要调整并发级别。
+
+AdaptiveConcurrencyLimitData也提供了一些方法来进行并发级别的调整。它们会根据当前的负载情况和配置项来动态地增加或降低并发限制级别。这些方法的目标是通过自动调整并发级别来实现更高的性能和资源利用率。
+
+总的来说，vector/src/internal_events/adaptive_concurrency.rs文件定义了适应性并发功能的实现，并提供了AdaptiveConcurrencyLimitData struct和相关的方法来管理并发限制级别的动态调整。通过自动化的并发级别管理，Vector能够自动适应负载变化，提供更高效的数据处理能力。
+

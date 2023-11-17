@@ -1,0 +1,10 @@
+# File: vector/src/sinks/gcp/stackdriver/metrics/request_builder.rs
+
+在Rust生态vector项目中，vector/src/sinks/gcp/stackdriver/metrics/request_builder.rs文件的作用是构建发送到Google Stackdriver的指标数据的请求。该文件中包含两个结构体：StackdriverMetricsRequestBuilder和StackdriverMetricsEncoder。
+
+StackdriverMetricsRequestBuilder结构体提供了一组方法来构建Stackdriver Metrics API请求的各个部分。它负责处理请求的元数据，如项目ID、指标数据等。通过调用这些方法，用户可以方便地设置请求的各个参数，如时间戳、资源名称、指标类型、指标值等。
+
+StackdriverMetricsEncoder结构体用于将指标数据编码为Google Stackdriver Metrics API使用的格式。它接收指标数据，并将其转换为符合Stackdriver API规范的格式，以便发送给Stackdriver服务。
+
+StackdriverMetricsRequestBuilder和StackdriverMetricsEncoder结合使用，StackdriverMetricsRequestBuilder负责构建整个请求的各个部分，而StackdriverMetricsEncoder负责将指标数据编码为可发送的格式。这两个结构体共同工作，最终将指标数据发送到Google Stackdriver以进行监控和分析。
+

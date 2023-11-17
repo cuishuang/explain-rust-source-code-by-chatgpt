@@ -1,0 +1,16 @@
+# File: vector/lib/vector-core/src/tls/incoming.rs
+
+在Rust生态vector项目中，vector-core/src/tls/incoming.rs文件的作用是定义用于处理传入连接的TLS相关功能。
+
+首先，MaybeTlsListener是一个枚举类型，它表示可能是TLS连接的监听器。它有两个选项：Plaintext用于表示非加密的监听器，Tls用于表示加密的监听器。
+
+接下来是MaybeTlsIncomingStream结构体，它表示可能是TLS连接的传入流。它包含两个字段：inner用于保存底层的传入流，以及state用于跟踪流的状态。这个结构体实现了AsyncRead和AsyncWrite特性，以便与其他流进行交互。
+
+CertificateMetadata结构体用于存储TLS证书的元数据信息，包括证书和私钥。
+
+MaybeTlsConnectInfo结构体用于存储TLS连接的相关信息，包括主机名、端口和证书元数据。
+
+StreamState是一个枚举类型，它表示传入流的状态。它有三个选项：Plain用于表示非加密的传入流，TlsAccepting用于表示正在进行TLS握手的传入流，TlsConnected用于表示已建立TLS连接的传入流。
+
+这些结构体和枚举类型协同工作，提供了一整套处理传入连接和TLS的功能，包括选择监听器类型、建立TLS连接并跟踪连接状态等。通过这些功能，开发人员可以轻松地在vector项目中实现对传入连接的TLS支持。
+

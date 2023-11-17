@@ -1,0 +1,16 @@
+# File: vector/src/internal_events/demo_logs.rs
+
+在Rust生态vector项目的源代码中，vector/src/internal_events/demo_logs.rs这个文件的作用是定义了与演示日志（Demo Logs）相关的内部事件（Internal Events）。
+
+该文件中定义了一个名为DemoLogsEventProcessed的结构体。该结构体用于表示已处理演示日志事件的内部事件。通常，在Vector中，内部事件是在不同的处理步骤之间进行消息传递和协调的机制。DemoLogsEventProcessed结构体的作用是在演示日志处理后发送一个内部事件，以通知其他组件或步骤。
+
+DemoLogsEventProcessed结构体具有以下字段：
+- logs: 一个Vec<String>，表示已处理演示日志的日志条目列表。每个日志条目都是一个字符串。
+- processed: 一个usize，表示已处理的演示日志的条目数量。
+
+结构体DemoLogsEventProcessed的主要作用是跟踪和传递已处理的演示日志。通过使用该结构体，Vector的其他组件或步骤可以了解有关演示日志处理的信息，并根据需要进行相应的操作或决策。
+
+此外，DemoLogsEventProcessed结构体也可以用于记录和跟踪演示日志的处理进度。字段processed表示已处理的演示日志的条目数量，可以用于监控处理过程的进度或计算处理速度等统计信息。
+
+总而言之，vector/src/internal_events/demo_logs.rs文件定义了与演示日志相关的内部事件，其中DemoLogsEventProcessed结构体用于表示已处理演示日志事件的内部事件，并提供了有关已处理演示日志的信息和进度。
+

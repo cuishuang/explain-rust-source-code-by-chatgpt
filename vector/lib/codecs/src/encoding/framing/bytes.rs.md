@@ -1,0 +1,12 @@
+# File: vector/lib/codecs/src/encoding/framing/bytes.rs
+
+在Rust生态vector项目中，vector/lib/codecs/src/encoding/framing/bytes.rs文件的作用是提供字节流编码的功能。该文件定义了与字节流编码相关的结构体和方法。主要用于将消息转换为字节流并进行编码。
+
+BytesEncoderConfig结构体是字节流编码器的配置选项。它包含用于编码的一些参数，如最大帧大小、压缩算法、超时时间等。通过创建该结构体的实例，可以根据需求配置字节流编码器。
+
+BytesEncoder结构体是实际的字节流编码器。它使用BytesEncoderConfig中的配置选项将消息转换为字节流并进行编码。通过该结构体，可以对消息进行压缩、分片、添加标头和尾部等操作，以生成有效的字节流。
+
+BytesEncoderConfig和BytesEncoder结构体的定义和方法是相互关联的。BytesEncoderConfig用于配置BytesEncoder，并通过配置选项在BytesEncoder中执行相应的编码操作。
+
+总结起来，BytesEncoderConfig用于配置字节流编码器的参数，而BytesEncoder用于实际的字节流编码操作。它们一起提供了将消息转换为字节流并进行编码的功能。
+

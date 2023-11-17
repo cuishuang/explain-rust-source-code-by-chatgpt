@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_lints/src/misc_early/redundant_at_rest_pattern.rs
+
+文件名为redundant_at_rest_pattern.rs的源代码文件位于rust-clippy/clippy_lints/src/misc_early/目录下。这个文件的作用是在Rust代码中检查并提醒可能存在的冗余模式(at-rest pattern)。
+
+在Rust中，模式是用来匹配和解构数据的语法结构。冗余模式(at-rest pattern)是指一种在模式匹配中出现的冗余写法，即模式中包含了冗余的部分。这些冗余部分在模式匹配中并没有实际的作用，因此是不必要和多余的。
+
+redundant_at_rest_pattern.rs文件就是用来检查和提醒这些冗余模式的存在。它首先定义了一个名为redundant_at_rest_pattern lint的结构体，其中包含了lint的名称、描述、默认值等信息。然后，它实现了从EarlyLintPass和LateLintPass trait继承的方法来进行具体的检查。
+
+该文件中的代码逻辑检查模式匹配的各种情况，以此来确定是否存在冗余模式。它可以检查的情况包括匹配项中某个分支的模式与其他分支模式相同、某个分支模式中的某个部分与其他分支模式中的相同部分重复等。当检测到这些冗余模式时，它会生成相应的警告信息，以提醒程序员优化代码。
+
+总之，redundant_at_rest_pattern.rs文件的作用就是在Rust代码中检查和提醒可能存在的冗余模式，以帮助程序员改进代码的质量和性能。
+

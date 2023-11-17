@@ -1,0 +1,14 @@
+# File: vector/src/sinks/elasticsearch/common.rs
+
+文件vector/src/sinks/elasticsearch/common.rs是Rust生态中vector项目中与Elasticsearch相关的sink的常用代码文件。该文件定义了一些与Elasticsearch通信和操作相关的结构体和方法。
+
+1. ElasticsearchCommon: 这个结构体定义了与Elasticsearch通信的常用配置，包括Elasticsearch服务的地址和端口号、验证信息、索引和类型等。它提供了一些方法，用于根据配置创建Elasticsearch连接，并发送和接收HTTP请求。
+
+2. Version: 这个结构体用于解析和表示Elasticsearch的版本信息。它包含了主版本号、次版本号和补丁版本号等字段，可以通过解析Elasticsearch返回的版本字符串来创建该结构体。
+
+3. ResponsePayload: 这个结构体用于表示Elasticsearch返回的响应内容。它包含了响应的HTTP状态码、JSON格式的响应体和一些辅助方法，可以通过该结构体来解析和处理Elasticsearch返回的数据。
+
+这些结构体和方法的作用主要是为了简化与Elasticsearch的交互和操作。通过ElasticsearchCommon结构体，可以方便地配置Elasticsearch连接和发送HTTP请求。Version结构体用于解析和表示Elasticsearch的版本信息，可以根据版本信息做出不同的处理。ResponsePayload结构体则用于解析和处理Elasticsearch返回的响应数据，方便对返回的数据进行处理和分析。
+
+总之，该文件中的结构体和方法提供了与Elasticsearch通信和操作相关的功能，简化了使用Elasticsearch的过程。
+

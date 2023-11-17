@@ -1,0 +1,10 @@
+# File: vector/lib/codecs/src/decoding/framing/length_delimited.rs
+
+在Rust生态vector项目中，vector/lib/codecs/src/decoding/framing/length_delimited.rs文件的作用是实现长度定界解码器。
+
+LengthDelimitedDecoderConfig结构体是用于配置长度定界解码器的参数。它包括了最大消息长度、最大帧大小等配置选项。
+
+LengthDelimitedDecoder结构体是基于tokio_util::codec::LengthDelimitedCodec实现的长度定界解码器。它实现了tokio_util::codec::Decoder trait，用于将输入数据流解码为长度定界的帧。具体来说，它会将输入的字节数组按照指定的长度进行分割，将每个分割后的帧传递给解码器的下一步。
+
+这些结构体的作用是提供一个可配置和可重用的长度定界解码器，用于解码器之间的消息传递。通过配置LengthDelimitedDecoderConfig选项，可以限制接收消息的大小，防止可能的内存溢出。LengthDelimitedDecoder结构体则实现了具体的解码逻辑，将输入的字节数组进行分割并输出帧数据。
+

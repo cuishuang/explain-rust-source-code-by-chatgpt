@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_lints/src/methods/skip_while_next.rs
+
+在rust-clippy的源代码中，rust-clippy/clippy_lints/src/methods/skip_while_next.rs文件的作用是实现一个lint检查，用于提醒开发者在使用Iterator的skip_while方法时需要注意一些潜在的问题。
+
+所谓的lint检查就是对代码中潜在问题的静态分析，以提醒开发者可能存在的bug或者不良代码风格。而在此文件中，实现的具体lint检查是针对skip_while方法的使用。
+
+在Rust中，Iterator是一个非常重要的特性之一，允许用户遍历一个集合中的元素。其中skip_while方法用于跳过满足条件的元素，直到找到第一个不满足条件的元素为止。然而，这个方法存在一些可能引发bug的使用情况，所以这个lint检查的目的就是提醒开发者注意这些潜在问题。
+
+具体而言，这个lint会检查skip_while方法的参数是否包含了变量的改变。如果在参数中引入了可变变量，那么在遍历时，这个可变变量的值会在每次迭代中被更新，从而可能导致意想不到的结果。因此，这个lint会提醒开发者在参数中尽量避免引入可变变量，以避免这种潜在的错误。
+
+总之，rust-clippy/clippy_lints/src/methods/skip_while_next.rs文件的作用是实现一个lint检查，用于提醒开发者在使用Iterator的skip_while方法时需要注意避免引入可变变量的问题，从而避免潜在的错误。
+

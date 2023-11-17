@@ -1,0 +1,20 @@
+# File: rust-clippy/clippy_lints/src/duplicate_mod.rs
+
+在rust-clippy的源代码中，rust-clippy/clippy_lints/src/duplicate_mod.rs这个文件的作用是实现了Clippy的一个lint（即代码检查工具）规则，用于检测重复的模块导入。
+
+在Rust中，模块用于组织代码，并为不同的代码提供命名空间。重复导入模块可能会导致代码冗余和混乱，因此Clippy提供了DuplicateMod这个lint规则来帮助开发者发现和修复这种问题。
+
+在duplicate_mod.rs文件中，定义了两个重要的struct，分别是Modules和DuplicateMod。
+
+1. Modules:
+Modules结构体用于存储代码中所有导入的模块。它包含了一个HashMap和一个HashSet，分别用于存储模块的路径和导入的位置。
+
+2. DuplicateMod:
+DuplicateMod结构体代表了重复导入模块警告的报告信息。它包含了重复导入的模块路径和导入的位置，可以用于生成错误提示和建议修复方法。
+
+在实现lint规则的过程中，重点关注的是visit_mod函数，该函数会在遍历代码中的每个模块时被调用。在函数中，首先会判断当前模块是否已经在Modules结构体中存在，如果存在，则说明有重复导入的情况，会根据具体情况生成相应的警告报告并添加到报告列表中。
+
+该lint规则的目的是帮助开发者发现和解决代码中的重复模块导入问题，提高代码的可读性和维护性。
+
+通过duplicate_mod.rs文件中的Modules和DuplicateMod结构体，以及visit_mod函数的实现，Clippy能够对代码进行遍历和检查，发现重复导入模块的问题，并给出对应的警告和修复建议。
+

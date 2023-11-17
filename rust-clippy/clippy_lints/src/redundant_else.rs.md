@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_lints/src/redundant_else.rs
+
+rust-clippy是一个Rust语言的静态代码检查工具，用于在编译时检查代码中的潜在问题和改进代码质量。而rust-clippy/clippy_lints/src/redundant_else.rs则是rust-clippy中的一个文件，其中定义了一些用于检测冗余else语句的lint规则。
+
+在Rust中，else语句通常用于在条件表达式不满足时执行备选的代码块。然而，在某些情况下，else语句可能是多余的，因为代码在条件表达式分支中已经返回了或终止了执行。这种情况下，可以通过移除冗余else语句来简化代码并提高可读性。
+
+在redundant_else.rs文件中，定义了一个名为`find_redundant_if_let`的函数，它是一个遍历AST（抽象语法树）并检查冗余else的核心逻辑。该函数会递归地遍历AST节点，寻找具有冗余else语句的if-let表达式，并生成相应的lint报告。
+
+BreakVisitor是在find_redundant_if_let函数中使用的一个helper struct。具体来说，BreakVisitor实现了rustc_ast::visit::Visitor trait，它用于在遍历AST节点时，对每个节点进行处理。BreakVisitor的作用是在遍历AST时，判断当前节点是否满足某些条件（例如是否为if-let表达式），如果满足，则执行相应的逻辑（例如生成冗余else的lint报告）。
+
+总的来说，redundant_else.rs文件中的代码实现了一种检测冗余else的lint规则，并在找到冗余else的情况下生成相应的lint报告，以帮助开发者提高代码质量和可读性。
+

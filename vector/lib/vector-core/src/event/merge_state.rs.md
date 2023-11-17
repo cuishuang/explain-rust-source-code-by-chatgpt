@@ -1,0 +1,18 @@
+# File: vector/lib/vector-core/src/event/merge_state.rs
+
+在Rust生态中，vector-core是一个用于数据搜集、传输和处理的工具库，而vector项目就是基于vector-core构建的一个用于日志收集和路由的工具。
+
+在vector-core的源代码中，vector-core/src/event/merge_state.rs文件是用于定义日志事件合并状态的。具体来说，这个文件中定义了LogEventMergeState结构体，该结构体包含了一些字段和方法，用于跟踪和管理日志事件的合并过程。
+
+LogEventMergeState结构体是用于表示事件合并的状态，它具有以下几个主要的作用：
+
+1. 跟踪事件合并过程：LogEventMergeState主要用于跟踪和记录事件的合并过程。它会维护一个内部的事件缓冲区，以及一些元数据和标志位，用于标记事件的合并情况。
+
+2. 控制事件合并策略：LogEventMergeState提供了一些方法和属性，用于指定和控制事件的合并策略。例如，它可以根据一定的条件来决定是否合并相邻的事件，或者合并相同源的事件。
+
+3. 提供合并结果：LogEventMergeState还可以通过提供合并后的事件集合来返回合并结果。它可以将缓冲区中的事件按照一定的规则进行合并，并返回合并后的事件列表供其他模块或函数使用。
+
+在LogEventMergeState结构体内部，还定义了一些相关的结构体和枚举，例如MergeTarget、MergeRecord和MergeAction等，它们用于辅助实现事件的合并操作。通过这些结构体和枚举，可以更加灵活地控制和处理事件合并的过程。
+
+总的来说，vector-core/src/event/merge_state.rs文件中的LogEventMergeState结构体提供了对日志事件合并过程的管理和控制，并为其他模块和函数提供了合并后的事件结果。通过这个文件，可以深入了解和理解vector代码中日志事件的处理流程和机制。
+

@@ -1,0 +1,16 @@
+# File: vector/src/sinks/honeycomb/request_builder.rs
+
+在Rust生态中，vector是一种高性能、可扩展的日志收集、路由和转换解决方案。在vector中，vector/src/sinks/honeycomb/request_builder.rs文件是与Honeycomb日志收集服务交互的请求构建模块。
+
+HoneycombRequestBuilder模块实现了与Honeycomb API进行通信所需的请求构建和参数设置。该模块为HoneycombSink提供了一个方便的方式来构建和发送日志事件。
+
+在该文件中，主要包含了三个struct：HoneycombRequestBuilder、HoneycombRequestBody和QueryParams。
+
+1. HoneycombRequestBuilder：这是主要的结构体，用于构建发送给Honeycomb API的请求。它包含了一些必需的参数，比如Honeycomb API的URL、API密钥、数据集等。该结构体还提供一些方法来设置和处理请求的其他参数，比如添加事件数据、设置采样率、设置时间戳等。
+
+2. HoneycombRequestBody：该结构体用于构建请求的主体，即要发送给Honeycomb的实际日志事件数据。它以JSON数组的形式存储事件数据，并提供了方法来添加、更新和处理事件数据。
+
+3. QueryParams：该结构体用于构建请求的查询参数。Honeycomb API支持一些查询参数来对日志事件进行过滤、排序和分页。此结构体提供了一些方法来设置和处理查询参数，比如设置过滤条件、设置排序规则、设置分页参数等。
+
+通过使用这些struct，HoneycombSink可以使用HoneycombRequestBuilder构建完整的请求，并将请求发送给Honeycomb API。HoneycombRequestBuilder还提供了一些辅助方法来处理API响应、处理错误等。这些功能使得与Honeycomb日志收集服务进行交互变得简单、高效。
+

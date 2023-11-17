@@ -1,0 +1,14 @@
+# File: vector/src/components/validation/runner/mod.rs
+
+文件vector/src/components/validation/runner/mod.rs的作用是定义了一个用于运行验证规则的组件。
+
+RunnerResults是一个struct，用于存储运行验证规则的结果。它包含了一个名为results的HashMap，用于存储每个验证规则的结果。每个验证规则的结果都以规则的名称作为键，并包含了一个名为output的RunnerOutput枚举值，用于表示验证是否通过以及相关的错误信息。
+
+Runner是一个struct，用于运行验证规则的主要逻辑。它包含了一个名为inputs的RunnerInput枚举值，表示验证规则的输入参数。Runner还包含了一个名为results的RunnerResults实例，用于存储每个验证规则的结果。Runner通过run方法来执行验证规则，其中会依次遍历每个验证规则，调用相应的验证方法，并更新结果。
+
+RunnerInput是一个enum，用于表示验证规则的输入参数。它包含了不同的变体，每个变体表示一种类型的输入参数。这些变体可以是值类型、列表类型或特定结构的类型。不同的验证规则可能需要不同的输入参数类型。
+
+RunnerOutput是一个enum，用于表示验证规则的输出结果。它包含了两个变体：Pass表示验证通过，Fail表示验证失败。Fail包含了一个名为message的字符串，用于描述失败的原因。
+
+总之，这个文件定义了一组用于运行验证规则的组件，包括用于存储结果的结构体RunnerResults，用于运行验证规则的结构体Runner，以及用于表示验证规则的输入参数和输出结果的枚举类型RunnerInput和RunnerOutput。这些组件的作用是用于执行验证规则，判断验证是否通过，并提供相关的错误信息。
+

@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_lints/src/misc_early/builtin_type_shadow.rs
+
+文件builtin_type_shadow.rs是rust-clippy工具的源代码中的一个文件，它位于rust-clippy/clippy_lints/src/misc_early目录下。它的作用是实现一个lint规则，用于检查在Rust代码中使用与标准库中的内建类型同名的变量或函数声明，并向用户发出警告。
+
+在Rust中，标准库提供了许多常用的内建类型，如i32、String、Vec等。然而，在某些情况下，开发者可能会意外地使用相同的名称来声明变量或函数，导致与内建类型发生冲突。当发生这种情况时，代码可能变得难以理解、维护或调试。
+
+为了避免这种情况的发生，而且为了提高代码的可读性和可维护性，rust-clippy工具提供了builtin_type_shadow lint，该lint会在编译期间检查代码，找出与内建类型同名的变量或函数声明，并向用户发出警告。
+
+具体而言，builtin_type_shadow.rs文件中定义了一个名为builtin_type_shadow的检查函数，在函数中实现了lint规则。lint规则首先检查代码中的每个变量声明和函数声明，然后检查它们的名称是否与标准库中的内建类型名称相同。如果发现存在同名情况，则发出警告信息，以便开发者能够及时修复这些潜在的问题。
+
+总之，builtin_type_shadow.rs文件是实现了一个lint规则，用于检查Rust代码中与标准库内建类型同名的变量或函数声明，并向开发者发出警告，帮助他们避免潜在的命名冲突问题。这有助于提高代码的可读性和可维护性。
+

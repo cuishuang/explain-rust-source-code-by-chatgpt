@@ -1,0 +1,12 @@
+# File: vector/src/sinks/gcp/stackdriver/metrics/sink.rs
+
+在Rust生态的vector项目中，vector/src/sinks/gcp/stackdriver/metrics/sink.rs文件的作用是定义了向Google Cloud Platform（GCP）Stackdriver发送指标数据的功能。
+
+其中，StackdriverMetricsNormalize struct用于规范化和转换来自Vector的度量数据，以便与Stackdriver API进行交互。它有一个泛型参数S，表示度量数据的来源，这样可以适应不同类型的度量数据。
+
+StackdriverMetricsSink<S> struct则是整个Stackdriver的指标发送器。它实现了Sink trait，使其能够与Vector的数据流进行交互。它的构造函数会接受一个StackdriverMetricsNormalize实例，用于处理和转换度量数据。
+
+StackdriverMetricsSink struct中的一些方法用于处理和发送规范化的度量数据，包括初始化和验证认证凭证、创建Stackdriver客户端、检查和创建Stackdriver度量指标，以及发送度量数据到Stackdriver。
+
+总体而言，StackdriverMetricsNormalize和StackdriverMetricsSink两个struct配合使用，提供了将度量数据发送到GCP Stackdriver的功能，并确保数据的正确转换、处理和发送。
+

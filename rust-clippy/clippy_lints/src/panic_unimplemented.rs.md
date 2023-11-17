@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_lints/src/panic_unimplemented.rs
+
+rust-clippy是一个Rust静态分析工具，它提供了一系列Lint插件，用于检查代码中常见的错误、潜在问题和不良实践。其中，panic_unimplemented.rs是其中一个Lint插件的实现文件。
+
+panic_unimplemented.rs的作用是检查代码中使用了未实现的panic!宏。在Rust中，panic!宏用于主动触发程序的崩溃，类似于其他编程语言中的异常。通常情况下，panic!宏的使用是为了暂时将未实现的功能进行占位，但这样的代码是不符合良好实践的，因为它可能会导致程序在运行时异常崩溃。
+
+panic_unimplemented省略了的panics也是一种常见的错误实践，因为它们没有提供任何清晰的错误消息或错误处理机制，使得调用者无法根据特定的情况采取必要的措施。这个Lint插件的目的是帮助开发人员找到并修复这样的问题。
+
+panic_unimplemented.rs会遍历代码并检查所有的panic!宏是否是未实现功能的占位符。它会给出相关的建议，如替换panic!宏为unimplemented!宏，并提供更清晰的错误信息，或者提示开发者进行更具体的错误处理。
+
+通过linting工具如rust-clippy，开发者可以及早捕获代码中的潜在问题和错误实践，从而提高代码质量、可维护性和可靠性。
+

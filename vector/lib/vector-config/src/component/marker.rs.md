@@ -1,0 +1,10 @@
+# File: vector/lib/vector-config/src/component/marker.rs
+
+在Rust生态vector项目中，vector-config/src/component/marker.rs文件的作用是定义了一些标记和特征类型，用于在vector配置文件中标识和区分不同类型的组件。
+
+EnrichmentTableComponent表示一个数据提取组件，它用于从源数据中提取额外的信息。ProviderComponent表示一个数据提供者组件，它用于获取数据并将其发送到其他组件。SecretsComponent表示一个用于存储和管理敏感信息（如密码）的组件。SinkComponent表示一个数据接收组件，它用于将数据写入目标位置，例如文件或远程服务器。SourceComponent表示一个数据源组件，它用于读取数据并将其发送到其他组件。TransformComponent表示一个数据转换组件，它用于对数据进行转换和处理。
+
+ComponentMarker是一个标记类型，用于标识一个组件类型。Sealed是一个特征类型，用于限制哪些类型可以实现ComponentMarker标记。
+
+通过不同的组件类型和标记类型，vector系统可以准确地识别和区分各个组件，从而正确地配置和处理数据流。这些标记和特征类型的定义使得vector-config能够提供丰富的功能和灵活的配置选项。
+

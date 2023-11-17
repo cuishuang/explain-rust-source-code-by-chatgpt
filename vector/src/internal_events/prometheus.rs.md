@@ -1,0 +1,16 @@
+# File: vector/src/internal_events/prometheus.rs
+
+vector/src/internal_events/prometheus.rs文件是Vector项目中的一个模块，用于处理与Prometheus监控系统相关的功能。
+
+该模块中定义了一些与Prometheus相关的结构体和函数，用于解析Prometheus格式的监控数据，并进行一些处理和转换操作。下面分别介绍这些结构体的作用：
+
+1. PrometheusParseError<'a>：这是一个泛型结构体，用于表示在解析Prometheus格式数据时可能发生的错误。它包含了一个描述错误的字符串以及错误发生的位置。
+
+2. PrometheusRemoteWriteParseError：这是一个结构体，用于表示在解析Prometheus Remote Write格式的数据时可能发生的错误。它包含了一个描述错误的字符串。
+
+3. PrometheusServerRequestComplete：这是一个结构体，用于表示Prometheus服务器请求完成的事件。它包含了一些字段，如请求的路径、响应的状态码、请求的持续时间等，用于记录和统计Prometheus的请求性能信息。
+
+4. PrometheusNormalizationError：这是一个结构体，用于表示在将Prometheus格式数据标准化时可能发生的错误。它包含了一个描述错误的字符串。
+
+这些结构体用于在Vector的内部事件系统中记录和传递Prometheus相关的信息。通过这些信息，Vector能够与Prometheus系统进行集成，并有能力对Prometheus格式的监控数据进行处理、转换和标准化。
+

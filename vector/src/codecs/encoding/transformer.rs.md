@@ -1,0 +1,14 @@
+# File: vector/src/codecs/encoding/transformer.rs
+
+在Rust生态的vector项目中，vector/src/codecs/encoding/transformer.rs文件的作用是实现用于转换数据格式的转换器。
+
+Transformer结构体是一个公共结构体，它管理一个数据转换器的实例。它拥有一个TransformerInner结构体的可变引用，用于保存转换器的内部状态。通过Transformer的实例，用户可以对数据进行转换，例如解析时间戳或转换数据格式。
+
+TransformerInner结构体是Transformer的内部结构体，它持有转换器的具体实现。它包含了一些转换过程所需的状态信息，例如时间戳的格式。
+
+TimestampFormat枚举是用于表示时间戳格式的枚举类型。它定义了不同的时间戳格式，如Unix时间戳、RFC3339格式等。通过TimestampFormat枚举，用户可以指定时间戳的输入或输出格式。
+
+在Transformer的实现中，会根据指定的时间戳格式对输入数据进行解析，然后将其转换为指定的输出数据格式。这个过程涉及到数据的编码和解码操作。Transformer结构体和TransformerInner结构体配合使用，使得数据转换可以更方便地进行。
+
+总结来说，transformer.rs文件中的Transformer结构体和TransformerInner结构体用于管理数据转换器的实例和内部状态，TimestampFormat枚举用于表示时间戳的格式。这些结构体和枚举的组合，使得数据的转换可以更加灵活和可控。
+

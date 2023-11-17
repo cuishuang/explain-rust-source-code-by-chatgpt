@@ -1,0 +1,18 @@
+# File: vector/src/sinks/prometheus/mod.rs
+
+在Rust生态向量（Vector）项目中，vector/src/sinks/prometheus/mod.rs文件的作用是实现Prometheus的输出插件。Prometheus是一个开源的监控系统和时序数据库，用于记录和查询各种指标。
+
+具体来说，vector/src/sinks/prometheus/mod.rs文件定义了PrometheusSink结构体和一些与其相关的trait及函数，用于向Prometheus服务器发送指标数据。PrometheusSink结构体实现了Sink trait，使得它可以被Vector框架调用。
+
+PrometheusRemoteWriteAuth这几个enum是用来处理Prometheus的远程写入（Remote Write）功能的授权问题。远程写入是一种将指标数据从Vector发送到Prometheus的方法。该enum定义了不同的授权策略，包括无授权、基本HTTP认证和Bearer令牌认证。
+
+下面是对PrometheusRemoteWriteAuth这几个enum的作用的详细介绍：
+
+1. PrometheusRemoteWriteAuth::NoAuth：表示没有授权限制，任何请求都可以成功写入Prometheus。
+
+2. PrometheusRemoteWriteAuth::BasicAuth：表示使用基本HTTP认证。在这种授权模式下，用户需要提供用户名和密码，Vector会将这些凭据与Prometheus服务器上的设置进行比较，以验证请求的合法性。
+
+3. PrometheusRemoteWriteAuth::BearerToken：表示使用Bearer令牌认证。在这种授权模式下，用户需要提供一个有效的令牌，Vector会将该令牌与Prometheus服务器上的设置进行比较，以验证请求的合法性。
+
+这些授权策略的作用是确保只有具有合法权限的用户可以将指标数据写入Prometheus服务器。根据具体的安全需求，可以选择合适的授权策略来保护数据的机密性和完整性。
+

@@ -1,0 +1,14 @@
+# File: vector/src/sinks/greptimedb/batch.rs
+
+greptimedb/batch.rs文件是Rust生态vector项目中Vector的GreptimeDB插件的源代码文件。该文件的作用是定义了GreptimeDBBatchSink结构体以及相关支持结构体。
+
+GreptimeDBBatchSink结构体是GreptimeDB的批量写入器，用于将事件批量写入GreptimeDB数据库。该结构体实现了vector::sinks::util::batch_sink::BatchSink特质，以实现将事件批量写入目标数据库的功能。
+
+结构体GreptimeDBBatchSizer用于确定批量写入时使用的批量大小。它实现了BatchSizer特质，以确定每次写入操作使用的事件数量。
+
+这些结构体的作用如下：
+- GreptimeDBBatchSink结构体负责将事件批量写入GreptimeDB数据库。它通过实现BatchSink特质，实现了将事件批量写入目标数据库的功能。
+- GreptimeDBBatchSizer结构体根据给定的配置信息和事件数据，确定每次写入操作使用的批量大小。通过实现BatchSizer特质，它提供了灵活的方式来确定批量写入操作的优化参数。
+
+总之，greptimedb/batch.rs文件中定义的结构体用于批量将事件写入GreptimeDB数据库，并提供了确定批量大小的灵活性。
+

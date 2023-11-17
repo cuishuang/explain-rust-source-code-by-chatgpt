@@ -1,0 +1,12 @@
+# File: vector/src/api/schema/metrics/received_events.rs
+
+在Rust生态vector项目中，vector/src/api/schema/metrics/received_events.rs文件的作用是定义与接收事件相关的指标结构体，用于度量和统计接收到的事件。
+
+首先，这个文件定义了一个名为ReceivedEventsTotal的指标结构体，该结构体用于度量接收到的总事件数量。这个指标可以用于监控和评估Vector在接收事件方面的性能。
+
+接下来，文件中定义了一个名为ComponentReceivedEventsTotal的结构体，用于度量每个组件（component）接收到的事件数量。这个结构体包含了一个字段，用于存储每个组件的名称以及它们接收到的总事件数量。通过这个结构体，可以追踪并统计单个组件接收到的事件数量，从而帮助确定每个组件的负载和性能。
+
+此外，文件中还定义了一个名为ComponentReceivedEventsThroughput的结构体，用于度量每个组件的事件吞吐量。这个结构体包含了一个字段，用于存储每个组件的名称以及它们的事件吞吐量。通过这个结构体，可以追踪并统计每个组件处理事件的速度，从而帮助评估组件的性能和效率。
+
+这些定义的指标结构体可以用于监控Vector在接收事件方面的整体性能，同时也可以用于监控和评估各个组件的负载和性能情况。通过度量并统计这些指标，可以为Vector的优化和调整提供有价值的数据和指导。
+

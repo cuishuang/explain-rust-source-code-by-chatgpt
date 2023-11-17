@@ -1,0 +1,16 @@
+# File: rust-clippy/clippy_lints/src/empty_structs_with_brackets.rs
+
+在rust-clippy中，rust-clippy/clippy_lints/src/empty_structs_with_brackets.rs文件是定义了一个名为empty_structs_with_brackets（空结构体使用大括号）的lint规则。这个lint规则的目的是查找和报告在Rust中使用大括号定义的空结构体。
+
+具体而言，该lint规则会在代码中查找所有的结构体声明，并检查它们是否是空的。如果结构体没有任何字段且使用了大括号进行定义，就会报告一个lint警告。这是因为在这种情况下，可以直接省略大括号，使代码更加简洁。
+
+在该文件中，有三个重要的结构体声明：EmptyStructsWithBrackets、EmptyStructsWithBracketsLint和EmptyStructsWithBracketsVisitor。
+
+1. EmptyStructsWithBrackets结构体：这是一个空的结构体声明，没有任何字段或方法。它的作用是作为一个标记，用来关联空结构体使用大括号的lint规则。
+
+2. EmptyStructsWithBracketsLint结构体：继承了rustc_lint::LintPass trait，并实现了其中的方法。这个结构体的作用是将lint规则注册到rustc编译器中，以便在代码编译过程中触发并报告。
+
+3. EmptyStructsWithBracketsVisitor结构体：实现了rustc_ast::visit::Visitor trait，并定义了对结构体声明进行遍历和检查的行为。它会遍历代码中的每个结构体声明，检查是否满足空结构体使用大括号的条件，并在不满足条件时触发lint报告。
+
+总结起来，rust-clippy/clippy_lints/src/empty_structs_with_brackets.rs这个文件的作用是定义并实现了一个lint规则，用于检查和报告在Rust中使用大括号定义的空结构体。它通过遍历代码中的结构体声明，并判断是否符合条件来触发lint警告。
+

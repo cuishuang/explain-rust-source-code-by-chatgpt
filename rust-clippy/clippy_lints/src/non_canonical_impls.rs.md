@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_lints/src/non_canonical_impls.rs
+
+rust-clippy是一个Rust语言的静态代码分析工具，它的作用是帮助开发者在编译代码时检查潜在的错误、低效的代码以及一些不规范的代码风格。在rust-clippy的源代码中，非规范实现（non_canonical_impls）是其中一个目录，而其下的non_canonical_impls.rs文件是该目录下的一个源代码文件。
+
+non_canonical_impls.rs文件的作用是实现一些非规范的类型之间的互相实现。在Rust语言中，一些类型之间需要遵守规范，例如实现了某个trait的结构体才能调用trait中定义的方法。然而，在特定的场景下，有时可能会需要一些非规范的实现，即在类型之间实现没有规范要求的方法或特性。
+
+该文件中主要包含了一些实现，这些实现可能会违反一些Rust代码规范，但是仍然在某些特定的情况下是有效的。例如，它可能包含一些在标准库中不存在的实现，或者一些不符合某些trait规范的实现。
+
+通过这些非规范实现，rust-clippy可以更全面地检测代码中的问题，提供更准确的静态分析结果。当开发者使用rust-clippy工具进行静态代码分析时，它会遍历代码中的每一个文件，并利用non_canonical_impls.rs中的非规范实现来检查代码中可能存在的问题。这样，开发者就能够发现并解决一些潜在的错误、低效的代码以及不规范的代码风格，提高代码的质量和可维护性。
+
+综上所述，rust-clippy/clippy_lints/src/non_canonical_impls.rs文件的作用是提供一些非规范类型之间的实现，帮助rust-clippy工具进行更全面、准确的代码静态分析。
+

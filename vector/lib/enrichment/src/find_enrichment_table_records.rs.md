@@ -1,0 +1,10 @@
+# File: vector/lib/enrichment/src/find_enrichment_table_records.rs
+
+在Rust生态矢量(vector)项目的源代码中，find_enrichment_table_records.rs文件的作用是实现了寻找富集表记录的功能。具体来说，它提供了一种方式来查找矢量中某个特定对象所在的富集表记录，并支持对富集表记录进行过滤和排序。
+
+FindEnrichmentTableRecords结构体是一个用于保存查询过滤条件的数据结构。它包含了需要查找的富集表名称、查询的字段名称以及条件和值，还有排序规则等信息。通过设置这些参数，我们可以根据不同的需求来获取对应的富集表记录。
+
+FindEnrichmentTableRecordsFn结构体则是一个函数指针类型，用于指向处理筛选条件的回调函数。当需要对查询结果进行过滤时，可以设置这个函数指针，根据自定义的条件来过滤查询结果。
+
+总体来说，find_enrichment_table_records.rs文件提供了一个灵活、可定制的富集表记录查询功能，使得用户可以根据自己的需求获取到符合条件的富集表记录。
+

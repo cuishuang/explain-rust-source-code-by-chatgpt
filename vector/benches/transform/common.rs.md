@@ -1,0 +1,18 @@
+# File: vector/benches/transform/common.rs
+
+在Rust生态中，vector是一个用于数据传输和处理的高性能，可扩展的开源软件。原始文件vector/benches/transform/common.rs用于定义一些用于测试变换操作的常用功能和结构。
+
+下面介绍common.rs中定义的几个主要结构体和函数：
+
+1. FixedLogStream：这是一个用于模拟来源不断产生日志数据的结构体。它内部包含一个固定长度和内容的日志字符串数组，以及一个记录当前读取位置的索引。FixedLogStream提供了一些方法来模拟日志流的行为，如获取日志、定期生成新日志等。
+
+2. FixedLogParser：这是一个用于解析FixedLogStream中的日志的结构体。它提供了一个parse方法，将每个日志字符串解析为具有特定结构的数据对象。
+
+3. FixedLogTransformer：这是一个用于对FixedLogParser解析的数据进行转换的结构体。它提供了一个transform方法，用于接收解析后的数据对象并进行转换操作，返回转换后的结果。
+
+4. FixedLogTransformerBuilder：这是一个用于创建FixedLogTransformer的构建器结构体。它提供了一些方法来配置FixedLogTransformer的属性，如设置转换函数、过滤条件等。
+
+这些结构体和函数的目的是为了创建一个模拟日志流，并在对流中的日志进行解析和转换时进行性能测试。FixedLogStream用于产生模拟的日志数据流，FixedLogParser用于解析这些日志，FixedLogTransformer用于对解析后的数据进行转换，而FixedLogTransformerBuilder则用于构建和配置FixedLogTransformer。
+
+通过该测试文件，可以评估vector在处理转换操作时的性能表现，并通过配置FixedLogTransformerBuilder的属性来测试不同的转换场景和条件，以获取性能优化的参考。
+

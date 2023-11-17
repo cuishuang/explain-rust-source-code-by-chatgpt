@@ -1,0 +1,18 @@
+# File: rust-clippy/clippy_lints/src/return_self_not_must_use.rs
+
+rust-clippy/clippy_lints/src/return_self_not_must_use.rs文件的作用是实现Lint规则，用于检查返回了自身的函数是否遗漏了must_use属性。
+
+在Rust中，must_use属性用于标记那些值必须被使用的情况。根据Rust语言的设计哲学，不应该存在未使用的返回值。因此，如果一个函数返回了自身的值，这个函数应该被标记为must_use，以便提醒调用者使用返回值，避免出现潜在的错误。
+
+在return_self_not_must_use.rs文件中，首先定义了一个Lint规则的结构体ReturnSelfNotMustUse。这个结构体实现了LintRule trait，具备了执行Lint规则的能力。LintRule trait定义了一系列方法，用于在代码中查找、匹配、修改和输出Lint警告信息。
+
+结构体ReturnSelfNotMustUse中的方法主要包括以下几个：
+
+1. get_lints：指定了该Lint规则所匹配的语法结构，如"impl_item_fn"表示该规则会匹配impl块中定义的函数。
+2. check_fn_item_signature：定义了如何检查函数签名，这里主要是检查函数是否返回自身的值。
+3. check_expr：定义了如何检查表达式，这里主要是检查函数调用是否忽略了返回值。
+4. check_impl_item：定义了如何检查impl块中的每个函数，这里会调用check_fn_item_signature方法和check_expr方法进行检查。
+5. applicability：定义了如何修复检查到的问题，对于遗漏must_use属性的函数，可以通过自动添加该属性来修复。
+
+以此方式，return_self_not_must_use.rs文件实现了一个Lint规则，用于检查返回了自身的函数是否遗漏了must_use属性。这个规则可以帮助开发人员发现可能的错误，并提醒他们正确使用函数的返回值。这有助于提高代码的质量和可靠性。
+

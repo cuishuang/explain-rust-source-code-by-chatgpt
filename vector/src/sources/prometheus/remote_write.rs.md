@@ -1,0 +1,17 @@
+# File: vector/src/sources/prometheus/remote_write.rs
+
+在Rust生态的Vector项目中，vector/src/sources/prometheus/remote_write.rs文件的作用是实现将数据写入到远程的Prometheus服务器。
+
+- PrometheusRemoteWriteConfig结构体用于存储配置参数，包括服务器地址、端口、路径、请求超时时间等。
+- RemoteWriteSource结构体是远程写入源，用于初始化和管理Prometheus的远程写入功能。
+
+该文件实现了Prometheus的远程写入协议，通过HTTP POST请求将指标数据批量写入到远程的Prometheus服务器。具体而言，它实现了HTTP客户端和相关的逻辑来将数据发送给Prometheus服务器。
+
+在该文件中，PrometheusRemoteWriteConfig结构体用于读取和存储配置参数，通过实现serde::Deserialize trait，可以从配置文件中读取相关信息。配置参数包括服务器地址、端口、路径、请求超时时间等。
+
+RemoteWriteSource结构体实现了Source trait，即数据源接口，它作为整个远程写入功能的入口点。它负责初始化和管理Prometheus的远程写入功能，包括加载配置、创建HTTP客户端、发送数据，并可以在需要时重新加载配置。
+
+RemoteWriteSource在启动时会根据配置参数创建一个HTTP客户端，并监听一个或多个输入通道。当数据到达输入通道时，远程写入源会将数据转换为符合Prometheus远程写入协议的格式，然后使用HTTP客户端将数据发送到配置的Prometheus服务器。
+
+通过RemoteWriteSource，用户可以在Vector中配置将指标数据推送到远程的Prometheus服务器，以便进行后续的监控和数据分析。这个功能对于将Vector与Prometheus集成，并实时将数据写入到Prometheus服务器非常有用。
+

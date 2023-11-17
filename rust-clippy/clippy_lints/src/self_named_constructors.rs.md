@@ -1,0 +1,14 @@
+# File: rust-clippy/clippy_lints/src/self_named_constructors.rs
+
+文件self_named_constructors.rs的作用是实现Clippy的名称建议规则（Name suggestions）之一，即构造函数（Constructors）的自命名（Self-named）。
+
+在Rust中，通常情况下，构造函数的名称与结构体或枚举名称相同。self_named_constructors.rs文件中的代码模式匹配了使用自命名的构造函数的情况，并提供了相关的建议和警告信息。
+
+这个文件中定义了一个名为SELF_NAMED_CONSTRUCTORS的常量，其值是一个Lint（警告）配置。在代码中使用了#[rustfmt::skip]属性，以防止代码格式化工具格式化这个常量。此常量是通过rustc_lint::declare_lint_pass宏创建的。此宏会将self_named_constructors函数注册为一个Lint Pass（在编译期间对代码进行静态分析的组件）。
+
+在self_named_constructors函数中，通过调用Session的struct_span_lint方法注册了一个名称为SELF_NAMED_CONSTUCTORS的Lint规则。这个规则会匹配符合某些条件的结构体或枚举的构造函数，并根据不同情况给出不同的建议和警告。
+
+具体而言，self_named_constructors函数定义了一些匹配规则，例如，匹配函数名与结构体或枚举名称不同的情况，并为这种情况下的构造函数提供警告信息。同时，也会匹配函数名与结构体或枚举名称相同，但带有下划线的情况，并为这种情况下的构造函数提供优化建议。
+
+总的来说，self_named_constructors.rs文件定义了一个进行静态代码分析的Lint Pass，用于检测和优化Rust代码中构造函数的命名问题，提供有关自命名构造函数的建议和警告信息，从而帮助开发人员编写更规范和易读的代码。
+

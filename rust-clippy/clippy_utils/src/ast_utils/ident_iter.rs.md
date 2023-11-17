@@ -1,0 +1,12 @@
+# File: rust-clippy/clippy_utils/src/ast_utils/ident_iter.rs
+
+在rust-clippy的源代码中，ast_utils/ident_iter.rs这个文件的作用是提供了用于遍历和收集Rust代码中标识符的工具。
+
+在该文件中，有两个主要的结构体：IdentIter和IdentCollector。
+
+IdentIter是一个带有标识符的迭代器，它的实现使用了std::vec::IntoIter<Ident>。IdentIter结构体有一个next方法，用于从迭代器中获取下一个标识符。这个迭代器用于遍历一个Rust代码块中的所有标识符。
+
+IdentCollector是一个用于收集标识符的结构体，它内部使用Vec<Ident>来保存收集到的标识符。它的实现包括了一些方法，例如push方法用于将一个标识符添加到集合中，以及get_collected方法返回收集到的所有标识符。
+
+IdentIter和IdentCollector一起使用可以实现在Rust代码中遍历所有标识符并将其收集到一个集合中的功能。这对于一些代码分析或重构工具来说非常有用，因为它提供了一种方便的方式来处理代码中的标识符。
+

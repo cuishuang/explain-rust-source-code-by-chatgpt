@@ -1,0 +1,14 @@
+# File: vector/src/sources/http_server.rs
+
+在Rust生态的vector项目中，文件vector/src/sources/http_server.rs的作用是实现了一个简单的HTTP服务器源。
+
+HttpConfig(SimpleHttpConfig)是一个结构体，表示HTTP服务器的配置。它包含了一些字段，如监听地址、端口、路由规则等。可以通过配置这些字段来定制HTTP服务器的行为。
+
+SimpleHttpConfig是一个实现了HttpConfig trait的结构体，它具体定义了如何配置HTTP服务器的行为。可以根据自己的需求，实例化SimpleHttpConfig并设置相应的字段值。
+
+SimpleHttpSource是一个结构体，表示HTTP服务器源。它包含了关联的配置和一些内部状态。SimpleHttpSource实现了Source trait，具有从HTTP服务器读取数据的能力。
+
+通过使用HttpConfig(SimpleHttpConfig)和SimpleHttpSource，可以创建一个HTTP服务器源实例，并将其添加到vector的流水线中。这样，vector就可以从指定的HTTP服务器中获取数据，并进行处理、传输等操作。
+
+总结起来，vector/src/sources/http_server.rs文件的作用就是实现了一个基于HTTP协议的简单服务器源，通过配置和源的实例化，可以在vector中对接和使用HTTP服务器。
+
