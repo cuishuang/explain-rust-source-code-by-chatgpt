@@ -1,0 +1,18 @@
+# File: miri/src/concurrency/data_race.rs
+
+在Rust的miri项目中，miri/src/concurrency/data_race.rs文件的作用是实现数据竞争检测的相关功能。
+
+ThreadClockSet结构体用于表示线程的时钟状态集合，其中包含线程的读写时钟和读写顺序时钟。DataRace结构体用于表示数据竞争。
+
+AtomicMemoryCellClocks结构体用于保存原子内存单元的时钟信息，用于数据竞争检测。MemoryCellClocks结构体用于保存普通内存单元的读写时钟信息。
+
+VClockAlloc结构体用于分配和管理已经分配了的时钟标识。ThreadExtraState结构体用于表示线程的额外状态信息，包括时钟状态信息。
+
+GlobalState结构体用于保存全局状态信息，包括内存布局、各个线程的状态等。
+
+EvalContextExt<'mir>和EvalContextPrivExt<'mir>是用于miri项目的求值上下文的扩展trait。它们提供了一些对求值上下文的扩展方法，用于操作和获取更多的内部信息。
+
+AtomicRwOrd、AtomicReadOrd、AtomicWriteOrd、AtomicFenceOrd和WriteType是用于表示原子操作和内存访问的各种顺序类型的枚举。它们用于描述内存操作的顺序和类型，并在数据竞争检测中使用。
+
+以上是miri项目的data_race.rs文件中的结构体、trait和枚举的作用简介。详细的功能和用法可以查看具体代码实现。
+

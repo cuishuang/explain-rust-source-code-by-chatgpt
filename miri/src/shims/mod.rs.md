@@ -1,0 +1,12 @@
+# File: miri/src/shims/mod.rs
+
+在Rust的miri项目中，miri/src/shims/mod.rs文件的作用是为了提供Rust标准库中的函数的Miri执行版本的实现。Miri是一个用于模拟Rust程序在编译时静态执行的工具，因此需要为标准库中的函数提供与Miri兼容的实现。
+
+这个文件中定义了一系列的shim函数，这些函数是在Miri中代替Rust标准库函数的实现。这些shim函数的实现是为了模拟标准库函数的行为，并且保证在执行时不会产生不确定性或与Miri的执行模型冲突。shim函数通过链接到Miri的执行环境，以相同的方式来处理对标准库函数的调用。这样，当Rust程序在Miri上执行时，可以使用这些shim函数来执行对标准库函数的调用，在Miri环境中为程序提供正确的行为。
+
+至于`EvalContextExt<'mir>`这几个trait，它们是为了扩展Mir执行环境（EvalContext）而定义的。EvalContext是Miri中的一个关键组件，负责模拟Rust程序在编译时的静态执行。这几个trait为EvalContext添加了额外的功能和方法，以便为Miri执行环境提供更多的能力和灵活性。
+
+具体来说，`EvalContextExt` trait为EvalContext添加了几个方法，并实现了这些方法的默认行为。这些特定的方法允许用户在Mir执行期间对执行环境进行自定义控制和修改。用户可以根据需要来实现这些方法，以定制Mir执行的行为和策略。
+
+总的来说，miri/src/shims/mod.rs文件的作用是提供标准库函数的模拟实现，而`EvalContextExt` trait是为了扩展Mir执行环境并提供更多的灵活性和定制能力。这些组件共同构成了Miri项目中的核心功能，使得Miri能够模拟Rust程序的执行并帮助开发者进行代码分析和调试。
+

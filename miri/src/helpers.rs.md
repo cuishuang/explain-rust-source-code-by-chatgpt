@@ -1,0 +1,12 @@
+# File: miri/src/helpers.rs
+
+在Rust的miri项目中，miri/src/helpers.rs是一个辅助工具文件，其目的是提供一些与Rust中的unsafe代码有关的实用功能。
+
+在该文件中定义了一个名为UnsafeCellVisitor<'ecx>的结构体。它是一个用于访问和处理Rust源代码中的UnsafeCell类型的访问者。UnsafeCell是Rust语言提供的一个用于进行内部可变性的类型，它允许在不进行同步的情况下对其包裹的数据进行修改。
+
+UnsafeCellVisitor结构体实现了rustc的hir::intravisit::Visitor trait，该trait允许开发者重载其中的方法来处理不同类型的AST节点。UnsafeCellVisitor结构体中具体实现了针对UnsafeCell类型节点的访问处理，以便进行适当的处理，比如检查是否存在潜在的数据竞争等。
+
+在文件中还定义了另外一个名为EvalContextExt<'mir>的trait，它是一个扩展trait，为EvalContext（在miri项目中用于执行Rust代码的上下文）添加了一些额外的功能。EvalContextExt<'mir>中定义了一些在miri项目中可能用到的额外方法和函数，用于执行与unsafe代码相关的操作。
+
+总而言之，miri/src/helpers.rs文件中定义的UnsafeCellVisitor和EvalContextExt<'mir>主要提供了一些用于处理Rust中的unsafe代码相关需求的实用功能和扩展。
+
