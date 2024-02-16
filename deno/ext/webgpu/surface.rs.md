@@ -1,0 +1,10 @@
+# File: /Users/fliter/rust-contribute/deno/ext/webgpu/surface.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/ext/webgpu/surface.rs文件的作用是实现WebGPU的绘图表面相关功能。该文件包含了WebGpuSurface结构体以及SurfaceConfigureArgs结构体。
+
+WebGpuSurface结构体是一个公共结构体，用于表示WebGPU的绘图表面。它包含了一些重要的字段和方法，用于与WebGPU进行交互。具体来说，这个结构体提供了创建WebGPU表面、配置表面、获取表面大小等功能。通过这个结构体，可以在Deno项目中使用WebGPU进行图形渲染。
+
+SurfaceConfigureArgs结构体是用于配置WebGPU表面的参数结构体。它包含了一些用于配置表面的字段，例如表面是否可见、缩放因子等。通过传递这个结构体参数，可以根据实际需求来配置WebGPU表面。
+
+这些结构体在Deno项目中扮演着连接WebGPU和应用程序之间桥梁的角色。它们提供了必要的接口和方法，使应用程序能够使用WebGPU进行图形渲染，并对表面进行配置和管理。这些功能对于实现WebGPU相关的图形应用程序和游戏非常重要。
+

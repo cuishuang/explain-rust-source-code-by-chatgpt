@@ -1,0 +1,13 @@
+error[E0609]: no field `b` on type `&remote::S`
+  --> tests/ui/remote/unknown_field.rs:12:5
+   |
+12 |     b: u8,
+   |     ^ unknown field
+
+error[E0560]: struct `remote::S` has no field named `b`
+  --> tests/ui/remote/unknown_field.rs:12:5
+   |
+12 |     b: u8,
+   |     ^ `remote::S` does not have this field
+   |
+   = note: all struct fields are already assigned

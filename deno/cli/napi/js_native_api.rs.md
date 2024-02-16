@@ -1,0 +1,12 @@
+# File: /Users/fliter/rust-contribute/deno/cli/napi/js_native_api.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/cli/napi/js_native_api.rs是一个Rust文件，它包含有关Deno的JavaScript原生API（Native API）的实现。该文件中的代码负责与JavaScript交互，暴露给JavaScript环境的一些功能。
+
+在这个文件中，有一个名为BufferFinalizer的结构体。BufferFinalizer结构体实现了Finalize trait，该trait用于在Rust中释放JavaScript中的Buffer对象。当JavaScript环境中的Buffer对象不再被使用时，Finalize trait的drop方法会被调用，从而触发Rust中的BufferFinalizer结构体执行释放操作。
+
+BufferFinalizer结构体的作用是在Rust中保存对应的JavaScript中的Buffer对象，以便在适当的时候释放它们。这样可以确保Deno中的内存不会因为无用的Buffer对象而不断增长，从而提高性能和内存管理的效率。
+
+通过BufferFinalizer结构体和Finalize trait的配合使用，Deno可以及时回收Javascript中的Buffer对象，释放占用的内存空间，从而避免内存泄漏和资源浪费的问题。
+
+在整个文件中，还包含了其他一些相关的结构体和函数，用于实现和处理Deno的JavaScript原生API，从而提供能够直接与JavaScript交互的功能。这些功能包括在Rust中创建JavaScript对象、调用JavaScript函数、处理JavaScript中的异常等，进一步增强了Deno的功能和扩展性。
+

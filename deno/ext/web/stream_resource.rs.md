@@ -1,0 +1,18 @@
+# File: /Users/fliter/rust-contribute/deno/ext/web/stream_resource.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/ext/web/stream_resource.rs文件是Deno的Web API模块中的一个文件，主要负责处理流资源的相关逻辑。
+
+该文件中的BoundedBufferChannelInner结构体是一个内部使用的有界缓冲通道，它被用来在多个不同的任务之间传递数据。该结构体包含了一个缓冲区，用于存储待传输的数据，以及一些管理缓冲区操作的方法。
+
+BoundedBufferChannel结构体则是对BoundedBufferChannelInner的封装，用于线程安全地操作缓冲通道。
+
+ReadableStreamResource结构体是Web API中的可读流资源模型的代表，用于生成可读流。它实现了Deno的资源接口，并提供了一些方法来跟踪和管理可读流的状态。
+
+CompletionHandle结构体是一个用于处理异步任务完成的结构体，它包含一个标志位用于表示任务是否已完成，并可在完成时触发回调函数。
+
+CompletionHandleInner结构体是对CompletionHandle的封装，提供线程安全的访问和操纵完成处理器的方法。
+
+ReadableStreamResourceData结构体是可读流资源的数据结构，它包含了一些用于缓存数据的字段，以及处理数据流操作的方法。
+
+这些结构体在Deno的Web API模块中共同协作，提供了处理流资源的功能，包括流的读取和写入操作，以及流的管理和状态追踪。它们封装了底层的数据结构和操作，提供了简洁、高效的流资源处理接口。
+

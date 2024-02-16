@@ -1,0 +1,14 @@
+# File: /Users/fliter/rust-contribute/deno/ext/webgpu/sampler.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/ext/webgpu/sampler.rs文件的作用是实现了与WebGPU采样器相关的功能。
+
+首先，WebGPU是Web的下一代图形API规范，用于在Web环境中进行高性能图形和计算操作。这个文件的目的是为了实现Deno对WebGPU采样器的创建和管理。
+
+在这个文件中，WebGpuSampler这个struct定义了一个WebGPU采样器的数据结构。它含有与采样器相关的属性，如mag_filter、min_filter、mipmap_filter等。这个struct还实现了一系列方法，用于创建、设置和销毁WebGPU采样器。
+
+而CreateSamplerArgs这个struct则用于定义创建WebGPU采样器时所需的一些参数。它包含了与采样器创建相关的属性，如mag_filter、min_filter、mipmap_filter等。
+
+通过结合这两个struct，可以在Deno项目中创建和管理WebGPU采样器。这样，Deno就可以在运行WebGPU的应用程序时，通过调用相应的函数和方法来创建和设置采样器，以满足对纹理采样、纹理过滤等的需求。
+
+总的来说，sampler.rs文件在Deno项目中提供了与WebGPU采样器相关的功能，通过定义WebGpuSampler和CreateSamplerArgs这两个struct，并实现相应的方法，来实现WebGPU采样器的创建和管理。
+

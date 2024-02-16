@@ -1,0 +1,14 @@
+# File: /Users/fliter/rust-contribute/deno/ext/web/message_port.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/ext/web/message_port.rs文件的作用是实现了与Web API中的MessagePort相关的功能。
+
+首先，MessagePort结构体表示一个消息通信的端口，它可以用于在多个线程或多个Deno实例之间传递消息。MessagePortResource结构体是对MessagePort的引用，它会在资源管理中进行管理。
+
+JsMessageData结构体表示传递给JavaScript的消息数据。它包含了消息类型、消息内容、以及可能的消息传输通道。这些信息将被封装成一个JsTransferable枚举类型的值进行传递。
+
+Transferable枚举类型用于标识可以通过消息通道进行传输的对象类型。它包括了JsTransferable枚举类型的值（封装了具体的JavaScript对象），以及持有了Deno的资源句柄的OwnedResources类型的值。
+
+JsTransferable枚举类型用于标识具体的JavaScript对象类型，其中包括了ArrayBuffer、SharedArrayBuffer、MessagePort、以及其他一些用于消息传递的对象类型。
+
+总结来说，/Users/fliter/rust-contribute/deno/ext/web/message_port.rs文件的作用是实现了Deno项目中与Web API中的MessagePort相关的功能，包括处理消息数据、传输通道的封装和管理等。同时，它定义了一些结构体和枚举类型来表示和处理相关的数据和对象。
+

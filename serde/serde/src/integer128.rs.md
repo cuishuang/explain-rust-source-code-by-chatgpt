@@ -1,0 +1,12 @@
+# File: serde/serde/src/integer128.rs
+
+在Rust生态的serde项目中，serde/serde/src/integer128.rs文件主要用于提供对128位整数类型的序列化和反序列化支持。
+
+128位整数是一种非常大的整数类型，它可以表示更大范围的整数值。然而，在Rust标准库中，并没有针对128位整数类型提供原生的序列化和反序列化支持。因此，通过serde项目提供的crate库可以为这种类型添加serde的序列化和反序列化能力。
+
+在integer128.rs文件中，定义了一个名为Integer128的结构体，用于表示128位整数。这个结构体实现了serde的Serialize和Deserialize trait，使得可以利用serde库对Integer128进行序列化和反序列化。
+
+具体来说，Integer128结构体重载了Serialize和Deserialize trait中的方法，实现了对Integer128类型的序列化和反序列化。在序列化时，Integer128的值被转换为一个128位的整数数组，并以字节数组的形式进行存储。而在反序列化时，字节数组会被重新还原为一个Integer128类型的值。
+
+通过在integer128.rs文件中实现Integer128的序列化和反序列化功能，可以使得128位整数类型可以被方便地用于serde库中的序列化和反序列化操作，从而实现在Rust中对大整数的数据序列化和反序列化支持。这对于处理需要大整数的应用程序非常有用。
+

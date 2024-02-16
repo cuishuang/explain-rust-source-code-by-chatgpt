@@ -1,0 +1,14 @@
+# File: serde/serde/src/de/ignored_any.rs
+
+serde/serde/src/de/ignored_any.rs这个文件是serde框架中的一个模块，定义了用于处理被忽略的任意值的数据解析器。
+
+在serde中，当实现数据序列化和反序列化时，有时会遇到需要忽略某些值的情况。例如，在反序列化JSON时，我们可能希望忽略一些字段，而不需要显式地定义它们在结构体中的对应关系。ignored_any模块就是为了处理这种情况而存在的。
+
+IgnoredAny这个struct是serde框架在处理被忽略的任意值时的默认行为。它实现了serde::de::Visitor trait，该trait是serde框架中用于描述如何从数据源解析出特定类型值的接口。
+
+IgnoredAny struct的作用是通过实现Visitor trait的方法，来处理被忽略的任意值。在具体实现中，IgnoredAny为解析任意值的方法（例如visit_i64、visit_str等）提供了一个空的实现。这样，在实际使用时，当遇到需要忽略的值时，serde框架会默认调用IgnoredAny的解析方法，然后什么都不做，直接跳过该值。
+
+这个设计的好处是保持了框架的灵活性和可扩展性。用户可以根据自己的需求，通过重载IgnoredAny的方法来自定义处理被忽略的任意值的行为。另外，IgnoredAny还可以作为serde的Visitor trait的默认实现，为其他数据类型的解析器提供一个通用的处理被忽略值的基础。
+
+总结来说，serde/serde/src/de/ignored_any.rs文件的作用是定义了一个用于处理被忽略的任意值的数据解析器IgnoredAny。它通过实现serde::de::Visitor trait的方法，提供了默认的处理行为，即什么都不做，直接忽略掉被解析的值。这个模块的设计使得serde框架可以更加灵活地处理忽略值的情况，并且可以通过重载IgnoredAny的方法来自定义处理行为。
+

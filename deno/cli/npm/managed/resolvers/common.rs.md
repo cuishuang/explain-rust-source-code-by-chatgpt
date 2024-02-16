@@ -1,0 +1,10 @@
+# File: /Users/fliter/rust-contribute/deno/cli/npm/managed/resolvers/common.rs
+
+在Deno项目中，/Users/fliter/rust-contribute/deno/cli/npm/managed/resolvers/common.rs文件的作用是为Deno的NPM模块解析器提供一些公共的功能和实现。
+
+该文件中定义了一个名为RegistryReadPermissionChecker的结构体。RegistryReadPermissionChecker结构体的作用是检查给定的NPM模块注册表是否有读取权限。它包含一个名为check的方法，该方法接收一个字符串参数，该参数是注册表的URL，方法返回一个Result类型，用于表示读取权限是否被授予。
+
+此外，该文件还定义了一个NpmPackageFsResolver trait和一个默认的NpmPackageFsResolver实现。NpmPackageFsResolver trait 是用于解析NPM模块的文件系统路径的抽象，它定义了一些方法，用于获取给定模块的文件系统路径和文件系统上的子路径。默认的NpmPackageFsResolver实现依赖于NPM模块的注册表路径，使用文件系统操作来获取模块的路径和子路径。
+
+总结起来，/Users/fliter/rust-contribute/deno/cli/npm/managed/resolvers/common.rs文件的作用是为Deno的NPM模块解析器提供一些公共功能和实现，包括检查注册表的读取权限以及解析NPM模块的文件系统路径。
+

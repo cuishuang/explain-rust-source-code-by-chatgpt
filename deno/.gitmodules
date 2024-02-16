@@ -1,0 +1,11 @@
+[submodule "test_util/std"]
+	path = test_util/std
+	url = https://github.com/denoland/deno_std
+	shallow = true
+[submodule "test_util/wpt"]
+	path = test_util/wpt
+	url = https://github.com/web-platform-tests/wpt.git
+
+[submodule "tools/node_compat/node"]
+	path = tools/node_compat/node
+	url = https://github.com/denoland/node_test.git

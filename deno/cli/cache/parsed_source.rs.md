@@ -1,0 +1,14 @@
+# File: /Users/fliter/rust-contribute/deno/cli/cache/parsed_source.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/cli/cache/parsed_source.rs文件的作用是缓存解析过的源代码。该文件定义了一个名为ParsedSourceCache的结构体，该结构体用于缓存已解析的源代码，提供了对源代码的解析和缓存的功能。
+
+具体来说，ParsedSourceCache文件包含了三个结构体：ParsedSourceCache, ParsedSource, ParsedSourceAsync。
+
+1. ParsedSourceCache结构体是一个缓存解析过的源代码的容器，是ParsedSource和ParsedSourceAsync结构体的集合。它提供了对源代码进行解析和缓存的功能，并且可以根据源代码的URL获取解析后的结果。
+
+2. ParsedSource结构体用于表示已解析的同步源代码的缓存项。它包含了源码的URL、源码哈希值以及解析后的AST(Abstract Syntax Tree)。AST是源代码解析后的抽象语法树表示，可以用于进一步的分析和处理源代码。
+
+3. ParsedSourceAsync结构体用于表示已解析的异步源代码的缓存项。它包含了源码的URL、源码哈希值、解析后的AST以及源码的依赖情况。异步源代码可能包含import语句等异步依赖关系，ParsedSourceAsync结构体可以存储这些依赖关系供后续处理使用。
+
+整体来说，ParsedSourceCache结构体及其相关结构体的作用是提供对解析过的源代码的缓存和查询功能，通过缓存解析结果可以提高源代码的解析速度，并且可以提供进一步的代码分析和处理。
+

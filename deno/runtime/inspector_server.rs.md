@@ -1,0 +1,14 @@
+# File: /Users/fliter/rust-contribute/deno/runtime/inspector_server.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/runtime/inspector_server.rs文件的作用是实现了一个用于与Chrome开发者工具通信的调试器服务器。这个调试器服务器允许开发者使用Chrome开发者工具来对Deno应用程序进行调试和分析。
+
+InspectorServer是一个结构体，它是整个调试器服务器的核心组件。它负责管理所有的InspectorInfo，并在接收到来自Chrome开发者工具的请求时进行处理。InspectorServer提供了启动、停止、管理和通信等功能。
+
+InspectorInfo是一个结构体，它代表一个连接到调试器服务器的Inspector实例。每个Inspector实例都表示一次与Chrome开发者工具的通信会话。InspectorInfo包含了与该Inspector关联的各种信息，比如唯一标识符、WebSocket连接、会话状态等。通过维护一组InspectorInfo实例，InspectorServer可以同时处理多个并发的调试器会话。
+
+这些结构体的作用如下：
+- InspectorServer负责整个调试器服务器的启动和管理，以及与Chrome开发者工具之间的通信。它接收来自Chrome开发者工具的请求，解析这些请求，并将它们发送给相应的Inspector实例进行处理。同时，InspectorServer负责维护所有已连接的Inspector实例的状态，并将相应的响应返回给Chrome开发者工具。通过InspectorServer，Deno应用程序可以与Chrome开发者工具实现调试交互。
+- InspectorInfo代表一个与调试器服务器建立的会话。它保存着与该会话相关的信息，包括会话ID、WebSocket连接、状态等。通过InspectorInfo，调试器服务器可以跟踪和管理每个会话的状态，以便正确处理来自Chrome开发者工具的请求，并将响应返回给相应的会话。
+
+总之，/Users/fliter/rust-contribute/deno/runtime/inspector_server.rs文件实现了一个调试器服务器，用于与Chrome开发者工具进行通信，并且通过InspectorServer和InspectorInfo结构体管理和处理多个并发的调试器会话。
+

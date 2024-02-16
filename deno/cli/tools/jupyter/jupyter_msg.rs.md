@@ -1,0 +1,14 @@
+# File: /Users/fliter/rust-contribute/deno/cli/tools/jupyter/jupyter_msg.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/cli/tools/jupyter/jupyter_msg.rs文件的作用是实现与Jupyter Notebook之间的通信。
+
+首先，该文件中定义了一个名为Connection的泛型结构体，它负责建立与Jupyter Notebook的连接，并处理与Notebook之间的通信。Connection结构体的泛型参数S表示网络流类型，比如TCP流或UNIX流。
+
+接着，RawMessage结构体表示从Jupyter Notebook接收到的原始消息。RawMessage包含了消息的元数据（如消息类型、请求ID等）以及消息体。RawMessage的方法可以将字节数组转换为消息类型并提取相关元数据。
+
+然后，JupyterMessage结构体表示经过解析的Jupyter消息。它使用枚举变体来表示不同类型的消息，例如KernelInfoRequest、KernelInfoResponse等。JupyterMessage还包含了与消息类型相关的数据字段。
+
+在Connection结构体中，定义了一系列方法来处理与Jupyter Notebook之间的通信。比如，可以使用Connection的connect方法来连接到Jupyter Notebook，使用send_request方法发送请求并等待响应，使用send_response方法发送响应消息等。
+
+总的来说，/Users/fliter/rust-contribute/deno/cli/tools/jupyter/jupyter_msg.rs文件中的Connection结构体负责与Jupyter Notebook建立连接，并提供了一些方法来发送和接收消息。而RawMessage和JupyterMessage结构体则用于解析和处理Jupyter Notebook发送的消息。
+

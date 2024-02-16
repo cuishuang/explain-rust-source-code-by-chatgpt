@@ -1,0 +1,16 @@
+# File: /Users/fliter/rust-contribute/deno/ext/ffi/dlfcn.rs
+
+在Deno项目的源代码中，/Users/fliter/rust-contribute/deno/ext/ffi/dlfcn.rs文件的作用是处理动态链接库的加载和使用。具体来说，它是通过使用外部的dlfcn库来加载和管理动态链接库，该库是Linux和Unix系统用于动态链接库操作的标准接口。
+
+其中，DynamicLibraryResource结构体是一个资源句柄，用于表示已加载的动态链接库。它内部包含了一个指向动态链接库的指针，以及一些相关信息和管理动态链接库的方法。
+
+ForeignFunction结构体表示从动态链接库中获取的外部函数。它包含了函数的名称，参数和返回值类型等信息，并提供了一个方法来调用该函数。
+
+ForeignStatic结构体用于表示在动态链接库中定义的全局变量或静态变量。它包含了变量的名称和类型等信息。
+
+FfiLoadArgs结构体是加载动态链接库时的参数配置，包括动态链接库的路径和一些加载选项。
+
+而ForeignSymbol枚举用于表示从动态链接库中获取的外部符号（包括函数和变量）。它有两个变体：Function，用于表示外部函数；和Static，用于表示全局变量或静态变量。枚举的每个变体都包含了与其对应的结构体，分别是ForeignFunction和ForeignStatic。
+
+通过这些结构体和枚举，Deno的代码在运行时可以动态地加载和使用动态链接库中的函数和变量，进而扩展其功能或与其他语言进行交互。
+
